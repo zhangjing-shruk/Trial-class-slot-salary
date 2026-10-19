@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {translate,messages} from '../src/translations.js';
+test('navigation, weekdays and pay methods switch languages',()=>{for(const [zh,en]of [['每日工作台','Daily Dashboard'],['科目看板','Subject Board'],['周一','Monday'],['按开放时长','By open hours']]){assert.equal(translate(zh,'en'),en);assert.equal(translate(zh,'zh'),zh);}});
+test('validation messages retain their numeric bounds in English',()=>{assert.equal(translate('完课数必须为 0–8 的整数','en'),'Completed lessons must be a whole number from 0 to 8.');assert.equal(translate('生效日不能早于最新版本 2026-10-18','en'),'The effective date cannot be earlier than the latest version (2026-10-18).');});
+test('user-entered notes, names, amounts and currencies are preserved',()=>{for(const value of ['Dalia Bassem','张老师','老师今天临时请假：家里有事','270 EGP','EGP','2026-10-19',0,270,null,undefined])assert.equal(translate(value,'en'),value);});
+test('English UI copy covers financial exports and has no untranslated Chinese',()=>{for(const [key,value]of Object.entries(messages)){assert.ok(value.trim(),key);assert.ok(!/[\u3400-\u9fff]/.test(value),key);}assert.equal(translate('计薪方式','en'),'Pay method');assert.equal(translate('时长工资','en'),'Hourly pay');assert.equal(translate('每日明细','en'),'Daily Details');});

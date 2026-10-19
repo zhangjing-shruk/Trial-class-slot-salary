@@ -1,0 +1,3039 @@
+{
+  "id": "khusussi-slot-2026-10-18-v1",
+  "source": "Trial Class Slot-NEW-Khusussi.xlsx",
+  "sheet": "slot",
+  "effective": "2026-10-18",
+  "teachers": [
+    {
+      "id": "xlsx-45a79d2aff5ea3c1",
+      "name": "Salma osama",
+      "subject": "英语",
+      "gender": "未提供",
+      "rate": null,
+      "currency": "",
+      "schedules": [
+        {
+          "effective": "2026-10-18",
+          "ranges": [
+            {
+              "day": 1,
+              "start": "12:00",
+              "end": "15:00"
+            },
+            {
+              "day": 4,
+              "start": "12:00",
+              "end": "15:00"
+            }
+          ]
+        }
+      ],
+      "source": {
+        "file": "Trial Class Slot-NEW-Khusussi.xlsx",
+        "sheet": "slot",
+        "cells": [
+          "C5",
+          "F5",
+          "C6",
+          "F6",
+          "C7",
+          "F7",
+          "C8",
+          "F8",
+          "C9",
+          "F9",
+          "C10",
+          "F10"
+        ]
+      }
+    },
+    {
+      "id": "xlsx-cf38c2549ab8b9bc",
+      "name": "Nadine Gamal",
+      "subject": "英语",
+      "gender": "未提供",
+      "rate": null,
+      "currency": "",
+      "schedules": [
+        {
+          "effective": "2026-10-18",
+          "ranges": [
+            {
+              "day": 0,
+              "start": "13:00",
+              "end": "16:00"
+            },
+            {
+              "day": 1,
+              "start": "13:00",
+              "end": "16:00"
+            },
+            {
+              "day": 4,
+              "start": "13:00",
+              "end": "16:00"
+            }
+          ]
+        }
+      ],
+      "source": {
+        "file": "Trial Class Slot-NEW-Khusussi.xlsx",
+        "sheet": "slot",
+        "cells": [
+          "B7",
+          "C7",
+          "F7",
+          "B8",
+          "C8",
+          "F8",
+          "B9",
+          "C9",
+          "F9",
+          "B10",
+          "C10",
+          "F10",
+          "B11",
+          "C11",
+          "F11",
+          "B12",
+          "C12",
+          "F12"
+        ]
+      }
+    },
+    {
+      "id": "xlsx-2adc38f274b83a1e",
+      "name": "Esraa ElRayan",
+      "subject": "英语",
+      "gender": "未提供",
+      "rate": null,
+      "currency": "",
+      "schedules": [
+        {
+          "effective": "2026-10-18",
+          "ranges": [
+            {
+              "day": 0,
+              "start": "14:00",
+              "end": "16:30"
+            },
+            {
+              "day": 1,
+              "start": "15:00",
+              "end": "17:00"
+            },
+            {
+              "day": 4,
+              "start": "18:00",
+              "end": "21:30"
+            }
+          ]
+        }
+      ],
+      "source": {
+        "file": "Trial Class Slot-NEW-Khusussi.xlsx",
+        "sheet": "slot",
+        "cells": [
+          "B9",
+          "B10",
+          "B11",
+          "C11",
+          "B12",
+          "C12",
+          "B13",
+          "C13",
+          "C14",
+          "F17",
+          "F18",
+          "F19",
+          "F20",
+          "F21",
+          "F22",
+          "F23"
+        ]
+      }
+    },
+    {
+      "id": "xlsx-74bca3222cd05064",
+      "name": "Dalia Bassem",
+      "subject": "英语",
+      "gender": "未提供",
+      "rate": null,
+      "currency": "",
+      "schedules": [
+        {
+          "effective": "2026-10-18",
+          "ranges": [
+            {
+              "day": 1,
+              "start": "14:00",
+              "end": "16:00"
+            },
+            {
+              "day": 2,
+              "start": "14:00",
+              "end": "16:00"
+            },
+            {
+              "day": 3,
+              "start": "14:00",
+              "end": "16:30"
+            }
+          ]
+        }
+      ],
+      "source": {
+        "file": "Trial Class Slot-NEW-Khusussi.xlsx",
+        "sheet": "slot",
+        "cells": [
+          "C9",
+          "D9",
+          "E9",
+          "C10",
+          "D10",
+          "E10",
+          "C11",
+          "D11",
+          "E11",
+          "C12",
+          "D12",
+          "E12",
+          "E13"
+        ]
+      }
+    },
+    {
+      "id": "xlsx-f8455f39678bd813",
+      "name": "Sarraa Samir",
+      "subject": "英语",
+      "gender": "未提供",
+      "rate": null,
+      "currency": "",
+      "schedules": [
+        {
+          "effective": "2026-10-18",
+          "ranges": [
+            {
+              "day": 0,
+              "start": "14:30",
+              "end": "15:00"
+            },
+            {
+              "day": 0,
+              "start": "15:30",
+              "end": "17:00"
+            },
+            {
+              "day": 0,
+              "start": "18:00",
+              "end": "21:00"
+            },
+            {
+              "day": 1,
+              "start": "15:00",
+              "end": "17:00"
+            },
+            {
+              "day": 1,
+              "start": "18:00",
+              "end": "21:00"
+            },
+            {
+              "day": 2,
+              "start": "14:30",
+              "end": "15:00"
+            },
+            {
+              "day": 2,
+              "start": "15:30",
+              "end": "17:00"
+            },
+            {
+              "day": 2,
+              "start": "18:00",
+              "end": "21:00"
+            },
+            {
+              "day": 3,
+              "start": "15:00",
+              "end": "17:00"
+            },
+            {
+              "day": 3,
+              "start": "18:00",
+              "end": "21:00"
+            },
+            {
+              "day": 4,
+              "start": "14:30",
+              "end": "15:00"
+            },
+            {
+              "day": 4,
+              "start": "15:30",
+              "end": "17:00"
+            },
+            {
+              "day": 4,
+              "start": "18:00",
+              "end": "21:00"
+            }
+          ]
+        }
+      ],
+      "source": {
+        "file": "Trial Class Slot-NEW-Khusussi.xlsx",
+        "sheet": "slot",
+        "cells": [
+          "B10",
+          "D10",
+          "F10",
+          "C11",
+          "E11",
+          "B12",
+          "C12",
+          "D12",
+          "E12",
+          "F12",
+          "B13",
+          "C13",
+          "D13",
+          "E13",
+          "F13",
+          "B14",
+          "C14",
+          "D14",
+          "E14",
+          "F14",
+          "B17",
+          "C17",
+          "D17",
+          "E17",
+          "F17",
+          "B18",
+          "C18",
+          "D18",
+          "E18",
+          "F18",
+          "B19",
+          "C19",
+          "D19",
+          "E19",
+          "F19",
+          "B20",
+          "C20",
+          "D20",
+          "E20",
+          "F20",
+          "B21",
+          "C21",
+          "D21",
+          "E21",
+          "F21",
+          "B22",
+          "C22",
+          "D22",
+          "E22",
+          "F22"
+        ]
+      }
+    },
+    {
+      "id": "xlsx-8a57d92e600db1d8",
+      "name": "Wafaa",
+      "subject": "英语",
+      "gender": "未提供",
+      "rate": null,
+      "currency": "",
+      "schedules": [
+        {
+          "effective": "2026-10-18",
+          "ranges": [
+            {
+              "day": 0,
+              "start": "16:00",
+              "end": "19:00"
+            },
+            {
+              "day": 1,
+              "start": "16:00",
+              "end": "19:00"
+            },
+            {
+              "day": 3,
+              "start": "16:00",
+              "end": "19:00"
+            },
+            {
+              "day": 4,
+              "start": "16:00",
+              "end": "19:00"
+            }
+          ]
+        }
+      ],
+      "source": {
+        "file": "Trial Class Slot-NEW-Khusussi.xlsx",
+        "sheet": "slot",
+        "cells": [
+          "B13",
+          "C13",
+          "E13",
+          "F13",
+          "B14",
+          "C14",
+          "E14",
+          "F14",
+          "B15",
+          "C15",
+          "E15",
+          "F15",
+          "B16",
+          "C16",
+          "E16",
+          "F16",
+          "B17",
+          "C17",
+          "E17",
+          "F17",
+          "B18",
+          "C18",
+          "E18",
+          "F18"
+        ]
+      }
+    },
+    {
+      "id": "xlsx-24bdec0caaf3f6cc",
+      "name": "Sara Diaa",
+      "subject": "英语",
+      "gender": "未提供",
+      "rate": null,
+      "currency": "",
+      "schedules": [
+        {
+          "effective": "2026-10-18",
+          "ranges": [
+            {
+              "day": 0,
+              "start": "16:30",
+              "end": "17:00"
+            },
+            {
+              "day": 0,
+              "start": "17:30",
+              "end": "18:00"
+            },
+            {
+              "day": 0,
+              "start": "19:00",
+              "end": "19:30"
+            },
+            {
+              "day": 1,
+              "start": "16:00",
+              "end": "17:00"
+            },
+            {
+              "day": 1,
+              "start": "17:30",
+              "end": "19:00"
+            },
+            {
+              "day": 2,
+              "start": "16:30",
+              "end": "17:00"
+            },
+            {
+              "day": 2,
+              "start": "17:30",
+              "end": "18:00"
+            },
+            {
+              "day": 2,
+              "start": "19:00",
+              "end": "20:00"
+            },
+            {
+              "day": 3,
+              "start": "16:30",
+              "end": "17:00"
+            },
+            {
+              "day": 3,
+              "start": "17:30",
+              "end": "19:00"
+            },
+            {
+              "day": 4,
+              "start": "16:00",
+              "end": "17:00"
+            },
+            {
+              "day": 4,
+              "start": "19:00",
+              "end": "20:00"
+            }
+          ]
+        }
+      ],
+      "source": {
+        "file": "Trial Class Slot-NEW-Khusussi.xlsx",
+        "sheet": "slot",
+        "cells": [
+          "C13",
+          "F13",
+          "B14",
+          "C14",
+          "D14",
+          "E14",
+          "F14",
+          "B16",
+          "C16",
+          "D16",
+          "E16",
+          "C17",
+          "E17",
+          "C18",
+          "E18",
+          "B19",
+          "D19",
+          "F19",
+          "D20",
+          "F20"
+        ]
+      }
+    },
+    {
+      "id": "xlsx-94d744ef08e0e4fc",
+      "name": "Aseel",
+      "subject": "英语",
+      "gender": "未提供",
+      "rate": null,
+      "currency": "",
+      "schedules": [
+        {
+          "effective": "2026-10-18",
+          "ranges": [
+            {
+              "day": 0,
+              "start": "17:00",
+              "end": "21:00"
+            },
+            {
+              "day": 1,
+              "start": "17:00",
+              "end": "21:00"
+            },
+            {
+              "day": 2,
+              "start": "17:00",
+              "end": "21:00"
+            },
+            {
+              "day": 3,
+              "start": "17:00",
+              "end": "21:00"
+            },
+            {
+              "day": 4,
+              "start": "17:00",
+              "end": "21:00"
+            }
+          ]
+        }
+      ],
+      "source": {
+        "file": "Trial Class Slot-NEW-Khusussi.xlsx",
+        "sheet": "slot",
+        "cells": [
+          "B15",
+          "C15",
+          "D15",
+          "E15",
+          "F15",
+          "B16",
+          "C16",
+          "D16",
+          "E16",
+          "F16",
+          "B17",
+          "C17",
+          "D17",
+          "E17",
+          "F17",
+          "B18",
+          "C18",
+          "D18",
+          "E18",
+          "F18",
+          "B19",
+          "C19",
+          "D19",
+          "E19",
+          "F19",
+          "B20",
+          "C20",
+          "D20",
+          "E20",
+          "F20",
+          "B21",
+          "C21",
+          "D21",
+          "E21",
+          "F21",
+          "B22",
+          "C22",
+          "D22",
+          "E22",
+          "F22"
+        ]
+      }
+    },
+    {
+      "id": "xlsx-873664ef786727e6",
+      "name": "Hadir ElNaggar",
+      "subject": "英语",
+      "gender": "未提供",
+      "rate": null,
+      "currency": "",
+      "schedules": [
+        {
+          "effective": "2026-10-18",
+          "ranges": [
+            {
+              "day": 0,
+              "start": "17:00",
+              "end": "20:00"
+            },
+            {
+              "day": 1,
+              "start": "17:00",
+              "end": "21:00"
+            },
+            {
+              "day": 2,
+              "start": "17:00",
+              "end": "21:00"
+            },
+            {
+              "day": 3,
+              "start": "17:00",
+              "end": "21:00"
+            }
+          ]
+        }
+      ],
+      "source": {
+        "file": "Trial Class Slot-NEW-Khusussi.xlsx",
+        "sheet": "slot",
+        "cells": [
+          "B15",
+          "C15",
+          "D15",
+          "E15",
+          "B16",
+          "C16",
+          "D16",
+          "E16",
+          "B17",
+          "C17",
+          "D17",
+          "E17",
+          "B18",
+          "C18",
+          "D18",
+          "E18",
+          "B19",
+          "C19",
+          "D19",
+          "E19",
+          "B20",
+          "C20",
+          "D20",
+          "E20",
+          "C21",
+          "D21",
+          "E21",
+          "C22",
+          "D22",
+          "E22"
+        ]
+      }
+    },
+    {
+      "id": "xlsx-f8cddc2868a6bfb6",
+      "name": "Hend Nour",
+      "subject": "英语",
+      "gender": "未提供",
+      "rate": null,
+      "currency": "",
+      "schedules": [
+        {
+          "effective": "2026-10-18",
+          "ranges": [
+            {
+              "day": 0,
+              "start": "19:00",
+              "end": "21:00"
+            },
+            {
+              "day": 1,
+              "start": "19:00",
+              "end": "21:00"
+            },
+            {
+              "day": 2,
+              "start": "19:00",
+              "end": "21:00"
+            },
+            {
+              "day": 3,
+              "start": "17:00",
+              "end": "20:00"
+            },
+            {
+              "day": 4,
+              "start": "17:00",
+              "end": "20:00"
+            }
+          ]
+        }
+      ],
+      "source": {
+        "file": "Trial Class Slot-NEW-Khusussi.xlsx",
+        "sheet": "slot",
+        "cells": [
+          "E15",
+          "F15",
+          "E16",
+          "F16",
+          "E17",
+          "F17",
+          "E18",
+          "F18",
+          "B19",
+          "C19",
+          "D19",
+          "E19",
+          "F19",
+          "B20",
+          "C20",
+          "D20",
+          "E20",
+          "F20",
+          "B21",
+          "C21",
+          "D21",
+          "B22",
+          "C22",
+          "D22"
+        ]
+      }
+    },
+    {
+      "id": "xlsx-689eaeb280129cd6",
+      "name": "Salma Mohamed",
+      "subject": "英语",
+      "gender": "未提供",
+      "rate": null,
+      "currency": "",
+      "schedules": [
+        {
+          "effective": "2026-10-18",
+          "ranges": [
+            {
+              "day": 0,
+              "start": "19:00",
+              "end": "21:00"
+            },
+            {
+              "day": 1,
+              "start": "19:00",
+              "end": "21:00"
+            },
+            {
+              "day": 3,
+              "start": "19:00",
+              "end": "21:00"
+            }
+          ]
+        }
+      ],
+      "source": {
+        "file": "Trial Class Slot-NEW-Khusussi.xlsx",
+        "sheet": "slot",
+        "cells": [
+          "B19",
+          "C19",
+          "E19",
+          "B20",
+          "C20",
+          "E20",
+          "B21",
+          "C21",
+          "E21",
+          "B22",
+          "C22",
+          "E22"
+        ]
+      }
+    },
+    {
+      "id": "xlsx-dd8d6db05e19b427",
+      "name": "Ebtisam Hussian",
+      "subject": "数学",
+      "gender": "未提供",
+      "rate": null,
+      "currency": "",
+      "schedules": [
+        {
+          "effective": "2026-10-18",
+          "ranges": [
+            {
+              "day": 0,
+              "start": "17:30",
+              "end": "21:30"
+            },
+            {
+              "day": 2,
+              "start": "17:30",
+              "end": "21:30"
+            },
+            {
+              "day": 4,
+              "start": "17:30",
+              "end": "21:30"
+            }
+          ]
+        }
+      ],
+      "source": {
+        "file": "Trial Class Slot-NEW-Khusussi.xlsx",
+        "sheet": "slot",
+        "cells": [
+          "B49",
+          "D49",
+          "F49",
+          "B50",
+          "D50",
+          "F50",
+          "B51",
+          "D51",
+          "F51",
+          "B52",
+          "D52",
+          "F52",
+          "B53",
+          "D53",
+          "F53",
+          "B54",
+          "D54",
+          "F54",
+          "B55",
+          "D55",
+          "F55",
+          "B56",
+          "D56",
+          "F56"
+        ]
+      }
+    },
+    {
+      "id": "xlsx-bfe80c1d65f2936f",
+      "name": "Yasmine Farh",
+      "subject": "数学",
+      "gender": "未提供",
+      "rate": null,
+      "currency": "",
+      "schedules": [
+        {
+          "effective": "2026-10-18",
+          "ranges": [
+            {
+              "day": 0,
+              "start": "18:00",
+              "end": "21:00"
+            },
+            {
+              "day": 1,
+              "start": "18:00",
+              "end": "21:00"
+            },
+            {
+              "day": 2,
+              "start": "18:00",
+              "end": "21:00"
+            },
+            {
+              "day": 3,
+              "start": "18:00",
+              "end": "21:00"
+            },
+            {
+              "day": 4,
+              "start": "18:00",
+              "end": "21:00"
+            }
+          ]
+        }
+      ],
+      "source": {
+        "file": "Trial Class Slot-NEW-Khusussi.xlsx",
+        "sheet": "slot",
+        "cells": [
+          "B50",
+          "C50",
+          "D50",
+          "E50",
+          "F50",
+          "B51",
+          "C51",
+          "D51",
+          "E51",
+          "F51",
+          "B52",
+          "C52",
+          "D52",
+          "E52",
+          "F52",
+          "B53",
+          "C53",
+          "D53",
+          "E53",
+          "F53",
+          "B54",
+          "C54",
+          "D54",
+          "E54",
+          "F54",
+          "B55",
+          "C55",
+          "D55",
+          "E55",
+          "F55"
+        ]
+      }
+    },
+    {
+      "id": "xlsx-32b43d41de89dcc1",
+      "name": "Menna Mohamed",
+      "subject": "数学",
+      "gender": "未提供",
+      "rate": null,
+      "currency": "",
+      "schedules": [
+        {
+          "effective": "2026-10-18",
+          "ranges": [
+            {
+              "day": 0,
+              "start": "18:00",
+              "end": "21:00"
+            },
+            {
+              "day": 1,
+              "start": "18:00",
+              "end": "21:00"
+            },
+            {
+              "day": 3,
+              "start": "18:00",
+              "end": "21:00"
+            },
+            {
+              "day": 4,
+              "start": "18:00",
+              "end": "21:00"
+            }
+          ]
+        }
+      ],
+      "source": {
+        "file": "Trial Class Slot-NEW-Khusussi.xlsx",
+        "sheet": "slot",
+        "cells": [
+          "B50",
+          "C50",
+          "E50",
+          "F50",
+          "B51",
+          "C51",
+          "E51",
+          "F51",
+          "B52",
+          "C52",
+          "E52",
+          "F52",
+          "B53",
+          "C53",
+          "E53",
+          "F53",
+          "B54",
+          "C54",
+          "E54",
+          "F54",
+          "B55",
+          "C55",
+          "E55",
+          "F55"
+        ]
+      }
+    },
+    {
+      "id": "xlsx-e071875d7fee6309",
+      "name": "Sarah Shaker",
+      "subject": "阿拉伯语",
+      "gender": "未提供",
+      "rate": null,
+      "currency": "",
+      "schedules": [
+        {
+          "effective": "2026-10-18",
+          "ranges": [
+            {
+              "day": 0,
+              "start": "17:00",
+              "end": "21:00"
+            },
+            {
+              "day": 1,
+              "start": "17:00",
+              "end": "21:00"
+            },
+            {
+              "day": 2,
+              "start": "17:00",
+              "end": "21:00"
+            },
+            {
+              "day": 3,
+              "start": "17:00",
+              "end": "21:00"
+            },
+            {
+              "day": 4,
+              "start": "17:00",
+              "end": "21:00"
+            }
+          ]
+        }
+      ],
+      "source": {
+        "file": "Trial Class Slot-NEW-Khusussi.xlsx",
+        "sheet": "slot",
+        "cells": [
+          "B70",
+          "C70",
+          "D70",
+          "E70",
+          "F70",
+          "B71",
+          "C71",
+          "D71",
+          "E71",
+          "F71",
+          "B72",
+          "C72",
+          "D72",
+          "E72",
+          "F72",
+          "B73",
+          "C73",
+          "D73",
+          "E73",
+          "F73",
+          "B74",
+          "C74",
+          "D74",
+          "E74",
+          "F74",
+          "B75",
+          "C75",
+          "D75",
+          "E75",
+          "F75",
+          "B76",
+          "C76",
+          "D76",
+          "E76",
+          "F76",
+          "B77",
+          "C77",
+          "D77",
+          "E77",
+          "F77"
+        ]
+      }
+    },
+    {
+      "id": "xlsx-2f3a1be442ba5e1d",
+      "name": "Salma Samy",
+      "subject": "阿拉伯语",
+      "gender": "未提供",
+      "rate": null,
+      "currency": "",
+      "schedules": [
+        {
+          "effective": "2026-10-18",
+          "ranges": [
+            {
+              "day": 0,
+              "start": "18:00",
+              "end": "21:00"
+            },
+            {
+              "day": 1,
+              "start": "18:00",
+              "end": "21:00"
+            },
+            {
+              "day": 2,
+              "start": "18:00",
+              "end": "21:00"
+            },
+            {
+              "day": 3,
+              "start": "18:00",
+              "end": "21:00"
+            }
+          ]
+        }
+      ],
+      "source": {
+        "file": "Trial Class Slot-NEW-Khusussi.xlsx",
+        "sheet": "slot",
+        "cells": [
+          "B72",
+          "C72",
+          "D72",
+          "E72",
+          "B73",
+          "C73",
+          "D73",
+          "E73",
+          "B74",
+          "C74",
+          "D74",
+          "E74",
+          "B75",
+          "C75",
+          "D75",
+          "E75",
+          "B76",
+          "C76",
+          "D76",
+          "E76",
+          "B77",
+          "C77",
+          "D77",
+          "E77"
+        ]
+      }
+    },
+    {
+      "id": "xlsx-f32c3b8602c00eb3",
+      "name": "Mayar Yousry",
+      "subject": "阿拉伯语",
+      "gender": "未提供",
+      "rate": null,
+      "currency": "",
+      "schedules": [
+        {
+          "effective": "2026-10-18",
+          "ranges": [
+            {
+              "day": 0,
+              "start": "18:00",
+              "end": "21:00"
+            },
+            {
+              "day": 1,
+              "start": "18:00",
+              "end": "21:00"
+            },
+            {
+              "day": 2,
+              "start": "19:00",
+              "end": "21:00"
+            },
+            {
+              "day": 4,
+              "start": "19:00",
+              "end": "21:00"
+            }
+          ]
+        }
+      ],
+      "source": {
+        "file": "Trial Class Slot-NEW-Khusussi.xlsx",
+        "sheet": "slot",
+        "cells": [
+          "B72",
+          "C72",
+          "B73",
+          "C73",
+          "B74",
+          "C74",
+          "D74",
+          "F74",
+          "B75",
+          "C75",
+          "D75",
+          "F75",
+          "B76",
+          "C76",
+          "D76",
+          "F76",
+          "B77",
+          "C77",
+          "D77",
+          "F77"
+        ]
+      }
+    }
+  ],
+  "cells": [
+    {
+      "cell": "C5",
+      "subject": "英语",
+      "day": 1,
+      "start": 720,
+      "names": [
+        "Salma osama"
+      ],
+      "raw": "Salma osama"
+    },
+    {
+      "cell": "F5",
+      "subject": "英语",
+      "day": 4,
+      "start": 720,
+      "names": [
+        "Salma osama"
+      ],
+      "raw": "Salma osama"
+    },
+    {
+      "cell": "C6",
+      "subject": "英语",
+      "day": 1,
+      "start": 750,
+      "names": [
+        "Salma osama"
+      ],
+      "raw": "Salma osama"
+    },
+    {
+      "cell": "F6",
+      "subject": "英语",
+      "day": 4,
+      "start": 750,
+      "names": [
+        "Salma osama"
+      ],
+      "raw": "Salma osama"
+    },
+    {
+      "cell": "B7",
+      "subject": "英语",
+      "day": 0,
+      "start": 780,
+      "names": [
+        "Nadine Gamal"
+      ],
+      "raw": "Nadine Gamal"
+    },
+    {
+      "cell": "C7",
+      "subject": "英语",
+      "day": 1,
+      "start": 780,
+      "names": [
+        "Nadine Gamal",
+        "Salma osama"
+      ],
+      "raw": "Nadine Gamal/Salma osama"
+    },
+    {
+      "cell": "F7",
+      "subject": "英语",
+      "day": 4,
+      "start": 780,
+      "names": [
+        "Nadine Gamal",
+        "Salma osama"
+      ],
+      "raw": "Nadine Gamal/Salma osama"
+    },
+    {
+      "cell": "B8",
+      "subject": "英语",
+      "day": 0,
+      "start": 810,
+      "names": [
+        "Nadine Gamal"
+      ],
+      "raw": "Nadine Gamal"
+    },
+    {
+      "cell": "C8",
+      "subject": "英语",
+      "day": 1,
+      "start": 810,
+      "names": [
+        "Nadine Gamal",
+        "Salma osama"
+      ],
+      "raw": "Nadine Gamal/Salma osama"
+    },
+    {
+      "cell": "F8",
+      "subject": "英语",
+      "day": 4,
+      "start": 810,
+      "names": [
+        "Nadine Gamal",
+        "Salma osama"
+      ],
+      "raw": "Nadine Gamal/Salma osama"
+    },
+    {
+      "cell": "B9",
+      "subject": "英语",
+      "day": 0,
+      "start": 840,
+      "names": [
+        "Nadine Gamal",
+        "Esraa ElRayan"
+      ],
+      "raw": "Nadine Gamal/Esraa ElRayan"
+    },
+    {
+      "cell": "C9",
+      "subject": "英语",
+      "day": 1,
+      "start": 840,
+      "names": [
+        "Nadine Gamal",
+        "Dalia Bassem",
+        "Salma osama"
+      ],
+      "raw": "Nadine Gamal/Dalia Bassem/Salma osama"
+    },
+    {
+      "cell": "D9",
+      "subject": "英语",
+      "day": 2,
+      "start": 840,
+      "names": [
+        "Dalia Bassem"
+      ],
+      "raw": "Dalia Bassem"
+    },
+    {
+      "cell": "E9",
+      "subject": "英语",
+      "day": 3,
+      "start": 840,
+      "names": [
+        "Dalia Bassem"
+      ],
+      "raw": "Dalia Bassem"
+    },
+    {
+      "cell": "F9",
+      "subject": "英语",
+      "day": 4,
+      "start": 840,
+      "names": [
+        "Nadine Gamal",
+        "Salma osama"
+      ],
+      "raw": "Nadine Gamal/Salma osama"
+    },
+    {
+      "cell": "B10",
+      "subject": "英语",
+      "day": 0,
+      "start": 870,
+      "names": [
+        "Nadine Gamal",
+        "Sarraa Samir",
+        "Esraa ElRayan"
+      ],
+      "raw": "Nadine Gamal/Sarraa Samir/Esraa ElRayan"
+    },
+    {
+      "cell": "C10",
+      "subject": "英语",
+      "day": 1,
+      "start": 870,
+      "names": [
+        "Nadine Gamal",
+        "Dalia Bassem",
+        "Salma osama"
+      ],
+      "raw": "Nadine Gamal/Dalia Bassem/Salma osama"
+    },
+    {
+      "cell": "D10",
+      "subject": "英语",
+      "day": 2,
+      "start": 870,
+      "names": [
+        "Dalia Bassem",
+        "Sarraa Samir"
+      ],
+      "raw": "Dalia Bassem/ Sarraa Samir"
+    },
+    {
+      "cell": "E10",
+      "subject": "英语",
+      "day": 3,
+      "start": 870,
+      "names": [
+        "Dalia Bassem"
+      ],
+      "raw": "Dalia Bassem"
+    },
+    {
+      "cell": "F10",
+      "subject": "英语",
+      "day": 4,
+      "start": 870,
+      "names": [
+        "Nadine Gamal",
+        "Sarraa Samir",
+        "Salma osama"
+      ],
+      "raw": "Nadine Gamal/Sarraa Samir/Salma osama"
+    },
+    {
+      "cell": "B11",
+      "subject": "英语",
+      "day": 0,
+      "start": 900,
+      "names": [
+        "Nadine Gamal",
+        "Esraa ElRayan"
+      ],
+      "raw": "Nadine Gamal/Esraa ElRayan"
+    },
+    {
+      "cell": "C11",
+      "subject": "英语",
+      "day": 1,
+      "start": 900,
+      "names": [
+        "Nadine Gamal",
+        "Sarraa Samir",
+        "Dalia Bassem",
+        "Esraa ElRayan"
+      ],
+      "raw": "Nadine Gamal/Sarraa Samir/Dalia Bassem/Esraa ElRayan"
+    },
+    {
+      "cell": "D11",
+      "subject": "英语",
+      "day": 2,
+      "start": 900,
+      "names": [
+        "Dalia Bassem"
+      ],
+      "raw": "Dalia Bassem"
+    },
+    {
+      "cell": "E11",
+      "subject": "英语",
+      "day": 3,
+      "start": 900,
+      "names": [
+        "Sarraa Samir",
+        "Dalia Bassem"
+      ],
+      "raw": "Sarraa Samir / Dalia Bassem"
+    },
+    {
+      "cell": "F11",
+      "subject": "英语",
+      "day": 4,
+      "start": 900,
+      "names": [
+        "Nadine Gamal"
+      ],
+      "raw": "Nadine Gamal"
+    },
+    {
+      "cell": "B12",
+      "subject": "英语",
+      "day": 0,
+      "start": 930,
+      "names": [
+        "Nadine Gamal",
+        "Sarraa Samir",
+        "Esraa ElRayan"
+      ],
+      "raw": "Nadine Gamal/Sarraa Samir/Esraa ElRayan"
+    },
+    {
+      "cell": "C12",
+      "subject": "英语",
+      "day": 1,
+      "start": 930,
+      "names": [
+        "Nadine Gamal",
+        "Sarraa Samir",
+        "Dalia Bassem",
+        "Esraa ElRayan"
+      ],
+      "raw": "Nadine Gamal/Sarraa Samir/Dalia Bassem/Esraa ElRayan"
+    },
+    {
+      "cell": "D12",
+      "subject": "英语",
+      "day": 2,
+      "start": 930,
+      "names": [
+        "Sarraa Samir",
+        "Dalia Bassem"
+      ],
+      "raw": "Sarraa Samir / Dalia Bassem"
+    },
+    {
+      "cell": "E12",
+      "subject": "英语",
+      "day": 3,
+      "start": 930,
+      "names": [
+        "Sarraa Samir",
+        "Dalia Bassem"
+      ],
+      "raw": "Sarraa Samir / Dalia Bassem"
+    },
+    {
+      "cell": "F12",
+      "subject": "英语",
+      "day": 4,
+      "start": 930,
+      "names": [
+        "Nadine Gamal",
+        "Sarraa Samir"
+      ],
+      "raw": "Nadine Gamal/Sarraa Samir"
+    },
+    {
+      "cell": "B13",
+      "subject": "英语",
+      "day": 0,
+      "start": 960,
+      "names": [
+        "Sarraa Samir",
+        "Wafaa",
+        "Esraa ElRayan"
+      ],
+      "raw": "Sarraa Samir/Wafaa/Esraa ElRayan"
+    },
+    {
+      "cell": "C13",
+      "subject": "英语",
+      "day": 1,
+      "start": 960,
+      "names": [
+        "Sara Diaa",
+        "Sarraa Samir",
+        "Wafaa",
+        "Esraa ElRayan"
+      ],
+      "raw": "Sara Diaa/Sarraa Samir/Wafaa/Esraa ElRayan"
+    },
+    {
+      "cell": "D13",
+      "subject": "英语",
+      "day": 2,
+      "start": 960,
+      "names": [
+        "Sarraa Samir"
+      ],
+      "raw": "Sarraa Samir"
+    },
+    {
+      "cell": "E13",
+      "subject": "英语",
+      "day": 3,
+      "start": 960,
+      "names": [
+        "Dalia Bassem",
+        "Sarraa Samir",
+        "Wafaa"
+      ],
+      "raw": "Dalia Bassem/Sarraa Samir/Wafaa"
+    },
+    {
+      "cell": "F13",
+      "subject": "英语",
+      "day": 4,
+      "start": 960,
+      "names": [
+        "Sara Diaa",
+        "Sarraa Samir",
+        "Wafaa"
+      ],
+      "raw": "Sara Diaa\\Sarraa Samir/Wafaa"
+    },
+    {
+      "cell": "B14",
+      "subject": "英语",
+      "day": 0,
+      "start": 990,
+      "names": [
+        "Sara Diaa",
+        "Sarraa Samir",
+        "Wafaa"
+      ],
+      "raw": "Sara Diaa / Sarraa Samir/Wafaa"
+    },
+    {
+      "cell": "C14",
+      "subject": "英语",
+      "day": 1,
+      "start": 990,
+      "names": [
+        "Sara Diaa",
+        "Sarraa Samir",
+        "Wafaa",
+        "Esraa ElRayan"
+      ],
+      "raw": "Sara Diaa / Sarraa Samir/Wafaa/Esraa ElRayan"
+    },
+    {
+      "cell": "D14",
+      "subject": "英语",
+      "day": 2,
+      "start": 990,
+      "names": [
+        "Sara Diaa",
+        "Sarraa Samir"
+      ],
+      "raw": "Sara Diaa  /Sarraa Samir"
+    },
+    {
+      "cell": "E14",
+      "subject": "英语",
+      "day": 3,
+      "start": 990,
+      "names": [
+        "Sara Diaa",
+        "Sarraa Samir",
+        "Wafaa"
+      ],
+      "raw": "Sara Diaa / Sarraa Samir/Wafaa"
+    },
+    {
+      "cell": "F14",
+      "subject": "英语",
+      "day": 4,
+      "start": 990,
+      "names": [
+        "Sara Diaa",
+        "Sarraa Samir",
+        "Wafaa"
+      ],
+      "raw": "Sara Diaa\\Sarraa Samir/Wafaa"
+    },
+    {
+      "cell": "B15",
+      "subject": "英语",
+      "day": 0,
+      "start": 1020,
+      "names": [
+        "Aseel",
+        "Hadir ElNaggar",
+        "Wafaa"
+      ],
+      "raw": "Aseel/Hadir ElNaggar/Wafaa"
+    },
+    {
+      "cell": "C15",
+      "subject": "英语",
+      "day": 1,
+      "start": 1020,
+      "names": [
+        "Aseel",
+        "Hadir ElNaggar",
+        "Wafaa"
+      ],
+      "raw": "Aseel/Hadir ElNaggar/Wafaa"
+    },
+    {
+      "cell": "D15",
+      "subject": "英语",
+      "day": 2,
+      "start": 1020,
+      "names": [
+        "Aseel",
+        "Hadir ElNaggar"
+      ],
+      "raw": "Aseel/Hadir ElNaggar"
+    },
+    {
+      "cell": "E15",
+      "subject": "英语",
+      "day": 3,
+      "start": 1020,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Hadir ElNaggar",
+        "Wafaa"
+      ],
+      "raw": "Aseel/Hend Nour / Hadir ElNaggar/Wafaa"
+    },
+    {
+      "cell": "F15",
+      "subject": "英语",
+      "day": 4,
+      "start": 1020,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Wafaa"
+      ],
+      "raw": "Aseel/Hend Nour/Wafaa"
+    },
+    {
+      "cell": "B16",
+      "subject": "英语",
+      "day": 0,
+      "start": 1050,
+      "names": [
+        "Aseel",
+        "Sara Diaa",
+        "Hadir ElNaggar",
+        "Wafaa"
+      ],
+      "raw": "Aseel/Sara Diaa / Hadir ElNaggar/Wafaa"
+    },
+    {
+      "cell": "C16",
+      "subject": "英语",
+      "day": 1,
+      "start": 1050,
+      "names": [
+        "Aseel",
+        "Sara Diaa",
+        "Hadir ElNagga",
+        "Wafaa"
+      ],
+      "raw": "Aseel/Sara Diaa / Hadir ElNagga/Wafaa"
+    },
+    {
+      "cell": "D16",
+      "subject": "英语",
+      "day": 2,
+      "start": 1050,
+      "names": [
+        "Aseel",
+        "Sara Diaa",
+        "Hadir ElNaggar"
+      ],
+      "raw": "Aseel/Sara Diaa  / Hadir ElNaggar"
+    },
+    {
+      "cell": "E16",
+      "subject": "英语",
+      "day": 3,
+      "start": 1050,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Sara Diaa",
+        "Hadir ElNaggar",
+        "Wafaa"
+      ],
+      "raw": "Aseel/Hend Nour / Sara Diaa / Hadir ElNaggar/Wafaa"
+    },
+    {
+      "cell": "F16",
+      "subject": "英语",
+      "day": 4,
+      "start": 1050,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Wafaa"
+      ],
+      "raw": "Aseel/Hend Nour/Wafaa"
+    },
+    {
+      "cell": "B17",
+      "subject": "英语",
+      "day": 0,
+      "start": 1080,
+      "names": [
+        "Aseel",
+        "Sarraa Samir",
+        "Hadir ElNaggar",
+        "Wafaa"
+      ],
+      "raw": "Aseel/Sarraa Samir / Hadir ElNaggar/Wafaa"
+    },
+    {
+      "cell": "C17",
+      "subject": "英语",
+      "day": 1,
+      "start": 1080,
+      "names": [
+        "Aseel",
+        "Sara Diaa",
+        "Sarraa Samir",
+        "Hadir ElNaggar",
+        "Wafaa"
+      ],
+      "raw": "Aseel/Sara Diaa / Sarraa Samir / Hadir ElNaggar/Wafaa"
+    },
+    {
+      "cell": "D17",
+      "subject": "英语",
+      "day": 2,
+      "start": 1080,
+      "names": [
+        "Aseel",
+        "Sarraa Samir",
+        "Hadir ElNaggar"
+      ],
+      "raw": "Aseel/Sarraa Samir / Hadir ElNaggar"
+    },
+    {
+      "cell": "E17",
+      "subject": "英语",
+      "day": 3,
+      "start": 1080,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Sara Diaa",
+        "Sarraa Samir",
+        "Hadir ElNaggar",
+        "Wafaa"
+      ],
+      "raw": "Aseel/Hend Nour / Sara Diaa / Sarraa Samir / Hadir ElNaggar/Wafaa"
+    },
+    {
+      "cell": "F17",
+      "subject": "英语",
+      "day": 4,
+      "start": 1080,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Sarraa Samir",
+        "Wafaa",
+        "Esraa ElRayan"
+      ],
+      "raw": "Aseel/Hend Nour / Sarraa Samir/Wafaa/Esraa ElRayan"
+    },
+    {
+      "cell": "B18",
+      "subject": "英语",
+      "day": 0,
+      "start": 1110,
+      "names": [
+        "Aseel",
+        "Sarraa Samir",
+        "Hadir ElNaggar",
+        "Wafaa"
+      ],
+      "raw": "Aseel/Sarraa Samir / Hadir ElNaggar/Wafaa"
+    },
+    {
+      "cell": "C18",
+      "subject": "英语",
+      "day": 1,
+      "start": 1110,
+      "names": [
+        "Aseel",
+        "ara Diaa",
+        "Sarraa Samir",
+        "Hadir ElNaggar",
+        "Wafaa"
+      ],
+      "raw": "Aseel/ara Diaa / Sarraa Samir / Hadir ElNaggar/Wafaa"
+    },
+    {
+      "cell": "D18",
+      "subject": "英语",
+      "day": 2,
+      "start": 1110,
+      "names": [
+        "Aseel",
+        "Sarraa Samir",
+        "Hadir ElNaggar"
+      ],
+      "raw": "Aseel/Sarraa Samir / Hadir ElNaggar"
+    },
+    {
+      "cell": "E18",
+      "subject": "英语",
+      "day": 3,
+      "start": 1110,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Sara Diaa",
+        "Sarraa Samir",
+        "Hadir ElNaggar",
+        "Wafaa"
+      ],
+      "raw": "Aseel/Hend Nour / Sara Diaa / Sarraa Samir / Hadir ElNaggar/Wafaa"
+    },
+    {
+      "cell": "F18",
+      "subject": "英语",
+      "day": 4,
+      "start": 1110,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Sarraa Samir",
+        "Wafaa",
+        "Esraa ElRayan"
+      ],
+      "raw": "Aseel/Hend Nour / Sarraa Samir/Wafaa/Esraa ElRayan"
+    },
+    {
+      "cell": "B19",
+      "subject": "英语",
+      "day": 0,
+      "start": 1140,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Sara Diaa",
+        "Sarraa Samir",
+        "Hadir ElNaggar",
+        "Salma Mohamed"
+      ],
+      "raw": "Aseel/Hend Nour / Sara Diaa / Sarraa Samir / Hadir ElNaggar/Salma Mohamed"
+    },
+    {
+      "cell": "C19",
+      "subject": "英语",
+      "day": 1,
+      "start": 1140,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Sarraa Samir",
+        "Salma Mohamed",
+        "Hadir ElNaggar"
+      ],
+      "raw": "Aseel/Hend Nour / Sarraa Samir/Salma Mohamed/Hadir ElNaggar"
+    },
+    {
+      "cell": "D19",
+      "subject": "英语",
+      "day": 2,
+      "start": 1140,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Sara Diaa",
+        "Sarraa Samir",
+        "Hadir ElNaggar"
+      ],
+      "raw": "Aseel/Hend Nour / Sara Diaa / Sarraa Samir/Hadir ElNaggar"
+    },
+    {
+      "cell": "E19",
+      "subject": "英语",
+      "day": 3,
+      "start": 1140,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Sarraa Samir",
+        "Salma Mohamed",
+        "Hadir ElNaggar"
+      ],
+      "raw": "Aseel/Hend Nour / Sarraa Samir/Salma Mohamed/Hadir ElNaggar"
+    },
+    {
+      "cell": "F19",
+      "subject": "英语",
+      "day": 4,
+      "start": 1140,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Sara Diaa",
+        "Sarraa Samir",
+        "Esraa ElRayan"
+      ],
+      "raw": "Aseel/Hend Nour / Sara Diaa / Sarraa Samir/Esraa ElRayan"
+    },
+    {
+      "cell": "B20",
+      "subject": "英语",
+      "day": 0,
+      "start": 1170,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Sarraa Samir",
+        "Hadir ElNaggar",
+        "Salma Mohamed"
+      ],
+      "raw": "Aseel/Hend Nour / Sarraa Samir / Hadir ElNaggar/Salma Mohamed"
+    },
+    {
+      "cell": "C20",
+      "subject": "英语",
+      "day": 1,
+      "start": 1170,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Sarraa Samir",
+        "Salma Mohamed",
+        "Hadir ElNaggar"
+      ],
+      "raw": "Aseel/Hend Nour / Sarraa Samir/Salma Mohamed/Hadir ElNaggar"
+    },
+    {
+      "cell": "D20",
+      "subject": "英语",
+      "day": 2,
+      "start": 1170,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Sara Diaa",
+        "Sarraa Samir",
+        "Hadir ElNaggar"
+      ],
+      "raw": "Aseel/Hend Nour / Sara Diaa / Sarraa Samir/Hadir ElNaggar"
+    },
+    {
+      "cell": "E20",
+      "subject": "英语",
+      "day": 3,
+      "start": 1170,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Sarraa Samir",
+        "Salma Mohamed",
+        "Hadir ElNaggar"
+      ],
+      "raw": "Aseel/Hend Nour / Sarraa Samir/Salma Mohamed/Hadir ElNaggar"
+    },
+    {
+      "cell": "F20",
+      "subject": "英语",
+      "day": 4,
+      "start": 1170,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Sara Diaa",
+        "Sarraa Samir",
+        "Esraa ElRayan"
+      ],
+      "raw": "Aseel/Hend Nour / Sara Diaa / Sarraa Samir/Esraa ElRayan"
+    },
+    {
+      "cell": "B21",
+      "subject": "英语",
+      "day": 0,
+      "start": 1200,
+      "names": [
+        "Aseel",
+        "Sarraa Samir",
+        "Hend Nour",
+        "Salma Mohamed"
+      ],
+      "raw": "Aseel/Sarraa Samir/Hend Nour/Salma Mohamed"
+    },
+    {
+      "cell": "C21",
+      "subject": "英语",
+      "day": 1,
+      "start": 1200,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Sarraa Samir",
+        "Hadir ElNaggar",
+        "Salma Mohamed"
+      ],
+      "raw": "Aseel/Hend Nour/Sarraa Samir / Hadir ElNaggar/Salma Mohamed"
+    },
+    {
+      "cell": "D21",
+      "subject": "英语",
+      "day": 2,
+      "start": 1200,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Sarraa Samir",
+        "Hadir ElNaggar"
+      ],
+      "raw": "Aseel/Hend Nour/Sarraa Samir / Hadir ElNaggar"
+    },
+    {
+      "cell": "E21",
+      "subject": "英语",
+      "day": 3,
+      "start": 1200,
+      "names": [
+        "Aseel",
+        "Sarraa Samir",
+        "Hadir ElNaggar",
+        "Salma Mohamed"
+      ],
+      "raw": "Aseel/Sarraa Samir / Hadir ElNaggar/Salma Mohamed"
+    },
+    {
+      "cell": "F21",
+      "subject": "英语",
+      "day": 4,
+      "start": 1200,
+      "names": [
+        "Aseel",
+        "Sarraa Samir",
+        "Esraa ElRayan"
+      ],
+      "raw": "Aseel/Sarraa Samir/Esraa ElRayan"
+    },
+    {
+      "cell": "B22",
+      "subject": "英语",
+      "day": 0,
+      "start": 1230,
+      "names": [
+        "Aseel",
+        "Sarraa Samir",
+        "Hend Nour",
+        "Salma Mohamed"
+      ],
+      "raw": "Aseel/Sarraa Samir/Hend Nour/Salma Mohamed"
+    },
+    {
+      "cell": "C22",
+      "subject": "英语",
+      "day": 1,
+      "start": 1230,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Sarraa Samir",
+        "Hadir ElNaggar",
+        "Salma Mohamed"
+      ],
+      "raw": "Aseel/Hend Nour/Sarraa Samir / Hadir ElNaggar/Salma Mohamed"
+    },
+    {
+      "cell": "D22",
+      "subject": "英语",
+      "day": 2,
+      "start": 1230,
+      "names": [
+        "Aseel",
+        "Hend Nour",
+        "Sarraa Samir",
+        "Hadir ElNaggar"
+      ],
+      "raw": "Aseel/Hend Nour/Sarraa Samir / Hadir ElNaggar"
+    },
+    {
+      "cell": "E22",
+      "subject": "英语",
+      "day": 3,
+      "start": 1230,
+      "names": [
+        "Aseel",
+        "Sarraa Samir",
+        "Hadir ElNaggar",
+        "Salma Mohamed"
+      ],
+      "raw": "Aseel/Sarraa Samir / Hadir ElNaggar/Salma Mohamed"
+    },
+    {
+      "cell": "F22",
+      "subject": "英语",
+      "day": 4,
+      "start": 1230,
+      "names": [
+        "Aseel",
+        "Sarraa Samir",
+        "Esraa ElRayan"
+      ],
+      "raw": "Aseel/Sarraa Samir/Esraa ElRayan"
+    },
+    {
+      "cell": "F23",
+      "subject": "英语",
+      "day": 4,
+      "start": 1260,
+      "names": [
+        "Esraa ElRayan"
+      ],
+      "raw": "Esraa ElRayan"
+    },
+    {
+      "cell": "B49",
+      "subject": "数学",
+      "day": 0,
+      "start": 1050,
+      "names": [
+        "Ebtisam Hussian"
+      ],
+      "raw": "Ebtisam Hussian"
+    },
+    {
+      "cell": "D49",
+      "subject": "数学",
+      "day": 2,
+      "start": 1050,
+      "names": [
+        "Ebtisam Hussian"
+      ],
+      "raw": "Ebtisam Hussian"
+    },
+    {
+      "cell": "F49",
+      "subject": "数学",
+      "day": 4,
+      "start": 1050,
+      "names": [
+        "Ebtisam Hussian"
+      ],
+      "raw": "Ebtisam Hussian"
+    },
+    {
+      "cell": "B50",
+      "subject": "数学",
+      "day": 0,
+      "start": 1080,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed",
+        "Ebtisam Hussian"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed/Ebtisam Hussian"
+    },
+    {
+      "cell": "C50",
+      "subject": "数学",
+      "day": 1,
+      "start": 1080,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed"
+    },
+    {
+      "cell": "D50",
+      "subject": "数学",
+      "day": 2,
+      "start": 1080,
+      "names": [
+        "Yasmine Farh",
+        "Ebtisam Hussian"
+      ],
+      "raw": "Yasmine Farh/Ebtisam Hussian"
+    },
+    {
+      "cell": "E50",
+      "subject": "数学",
+      "day": 3,
+      "start": 1080,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed"
+    },
+    {
+      "cell": "F50",
+      "subject": "数学",
+      "day": 4,
+      "start": 1080,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed",
+        "Ebtisam Hussian"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed/Ebtisam Hussian"
+    },
+    {
+      "cell": "B51",
+      "subject": "数学",
+      "day": 0,
+      "start": 1110,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed",
+        "Ebtisam Hussian"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed/Ebtisam Hussian"
+    },
+    {
+      "cell": "C51",
+      "subject": "数学",
+      "day": 1,
+      "start": 1110,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed"
+    },
+    {
+      "cell": "D51",
+      "subject": "数学",
+      "day": 2,
+      "start": 1110,
+      "names": [
+        "Yasmine Farh",
+        "Ebtisam Hussian"
+      ],
+      "raw": "Yasmine Farh/Ebtisam Hussian"
+    },
+    {
+      "cell": "E51",
+      "subject": "数学",
+      "day": 3,
+      "start": 1110,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed"
+    },
+    {
+      "cell": "F51",
+      "subject": "数学",
+      "day": 4,
+      "start": 1110,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed",
+        "Ebtisam Hussian"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed/Ebtisam Hussian"
+    },
+    {
+      "cell": "B52",
+      "subject": "数学",
+      "day": 0,
+      "start": 1140,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed",
+        "Ebtisam Hussian"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed/Ebtisam Hussian"
+    },
+    {
+      "cell": "C52",
+      "subject": "数学",
+      "day": 1,
+      "start": 1140,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed"
+    },
+    {
+      "cell": "D52",
+      "subject": "数学",
+      "day": 2,
+      "start": 1140,
+      "names": [
+        "Yasmine Farh",
+        "Ebtisam Hussian"
+      ],
+      "raw": "Yasmine Farh/Ebtisam Hussian"
+    },
+    {
+      "cell": "E52",
+      "subject": "数学",
+      "day": 3,
+      "start": 1140,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed"
+    },
+    {
+      "cell": "F52",
+      "subject": "数学",
+      "day": 4,
+      "start": 1140,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed",
+        "Ebtisam Hussian"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed/Ebtisam Hussian"
+    },
+    {
+      "cell": "B53",
+      "subject": "数学",
+      "day": 0,
+      "start": 1170,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed",
+        "Ebtisam Hussian"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed/Ebtisam Hussian"
+    },
+    {
+      "cell": "C53",
+      "subject": "数学",
+      "day": 1,
+      "start": 1170,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed"
+    },
+    {
+      "cell": "D53",
+      "subject": "数学",
+      "day": 2,
+      "start": 1170,
+      "names": [
+        "Yasmine Farh",
+        "Ebtisam Hussian"
+      ],
+      "raw": "Yasmine Farh/Ebtisam Hussian"
+    },
+    {
+      "cell": "E53",
+      "subject": "数学",
+      "day": 3,
+      "start": 1170,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed"
+    },
+    {
+      "cell": "F53",
+      "subject": "数学",
+      "day": 4,
+      "start": 1170,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed",
+        "Ebtisam Hussian"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed/Ebtisam Hussian"
+    },
+    {
+      "cell": "B54",
+      "subject": "数学",
+      "day": 0,
+      "start": 1200,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed",
+        "Ebtisam Hussian"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed/Ebtisam Hussian"
+    },
+    {
+      "cell": "C54",
+      "subject": "数学",
+      "day": 1,
+      "start": 1200,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed"
+    },
+    {
+      "cell": "D54",
+      "subject": "数学",
+      "day": 2,
+      "start": 1200,
+      "names": [
+        "Yasmine Farh",
+        "Ebtisam Hussian"
+      ],
+      "raw": "Yasmine Farh/Ebtisam Hussian"
+    },
+    {
+      "cell": "E54",
+      "subject": "数学",
+      "day": 3,
+      "start": 1200,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed"
+    },
+    {
+      "cell": "F54",
+      "subject": "数学",
+      "day": 4,
+      "start": 1200,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed",
+        "Ebtisam Hussian"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed/Ebtisam Hussian"
+    },
+    {
+      "cell": "B55",
+      "subject": "数学",
+      "day": 0,
+      "start": 1230,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed",
+        "Ebtisam Hussian"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed/Ebtisam Hussian"
+    },
+    {
+      "cell": "C55",
+      "subject": "数学",
+      "day": 1,
+      "start": 1230,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed"
+    },
+    {
+      "cell": "D55",
+      "subject": "数学",
+      "day": 2,
+      "start": 1230,
+      "names": [
+        "Yasmine Farh",
+        "Ebtisam Hussian"
+      ],
+      "raw": "Yasmine Farh/Ebtisam Hussian"
+    },
+    {
+      "cell": "E55",
+      "subject": "数学",
+      "day": 3,
+      "start": 1230,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed"
+    },
+    {
+      "cell": "F55",
+      "subject": "数学",
+      "day": 4,
+      "start": 1230,
+      "names": [
+        "Yasmine Farh",
+        "Menna Mohamed",
+        "Ebtisam Hussian"
+      ],
+      "raw": "Yasmine Farh/Menna Mohamed/Ebtisam Hussian"
+    },
+    {
+      "cell": "B56",
+      "subject": "数学",
+      "day": 0,
+      "start": 1260,
+      "names": [
+        "Ebtisam Hussian"
+      ],
+      "raw": "Ebtisam Hussian"
+    },
+    {
+      "cell": "D56",
+      "subject": "数学",
+      "day": 2,
+      "start": 1260,
+      "names": [
+        "Ebtisam Hussian"
+      ],
+      "raw": "Ebtisam Hussian"
+    },
+    {
+      "cell": "F56",
+      "subject": "数学",
+      "day": 4,
+      "start": 1260,
+      "names": [
+        "Ebtisam Hussian"
+      ],
+      "raw": "Ebtisam Hussian"
+    },
+    {
+      "cell": "B70",
+      "subject": "阿拉伯语",
+      "day": 0,
+      "start": 1020,
+      "names": [
+        "Sarah Shaker"
+      ],
+      "raw": "Sarah Shaker"
+    },
+    {
+      "cell": "C70",
+      "subject": "阿拉伯语",
+      "day": 1,
+      "start": 1020,
+      "names": [
+        "Sarah Shaker"
+      ],
+      "raw": "Sarah Shaker"
+    },
+    {
+      "cell": "D70",
+      "subject": "阿拉伯语",
+      "day": 2,
+      "start": 1020,
+      "names": [
+        "Sarah Shaker"
+      ],
+      "raw": "Sarah Shaker"
+    },
+    {
+      "cell": "E70",
+      "subject": "阿拉伯语",
+      "day": 3,
+      "start": 1020,
+      "names": [
+        "Sarah Shaker"
+      ],
+      "raw": "Sarah Shaker"
+    },
+    {
+      "cell": "F70",
+      "subject": "阿拉伯语",
+      "day": 4,
+      "start": 1020,
+      "names": [
+        "Sarah Shaker"
+      ],
+      "raw": "Sarah Shaker"
+    },
+    {
+      "cell": "B71",
+      "subject": "阿拉伯语",
+      "day": 0,
+      "start": 1050,
+      "names": [
+        "Sarah Shaker"
+      ],
+      "raw": "Sarah Shaker"
+    },
+    {
+      "cell": "C71",
+      "subject": "阿拉伯语",
+      "day": 1,
+      "start": 1050,
+      "names": [
+        "Sarah Shaker"
+      ],
+      "raw": "Sarah Shaker"
+    },
+    {
+      "cell": "D71",
+      "subject": "阿拉伯语",
+      "day": 2,
+      "start": 1050,
+      "names": [
+        "Sarah Shaker"
+      ],
+      "raw": "Sarah Shaker"
+    },
+    {
+      "cell": "E71",
+      "subject": "阿拉伯语",
+      "day": 3,
+      "start": 1050,
+      "names": [
+        "Sarah Shaker"
+      ],
+      "raw": "Sarah Shaker"
+    },
+    {
+      "cell": "F71",
+      "subject": "阿拉伯语",
+      "day": 4,
+      "start": 1050,
+      "names": [
+        "Sarah Shaker"
+      ],
+      "raw": "Sarah Shaker"
+    },
+    {
+      "cell": "B72",
+      "subject": "阿拉伯语",
+      "day": 0,
+      "start": 1080,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker",
+        "Mayar Yousry"
+      ],
+      "raw": "Salma Samy/Sarah Shaker/Mayar Yousry"
+    },
+    {
+      "cell": "C72",
+      "subject": "阿拉伯语",
+      "day": 1,
+      "start": 1080,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker",
+        "Mayar Yousry"
+      ],
+      "raw": "Salma Samy/Sarah Shaker/Mayar Yousry"
+    },
+    {
+      "cell": "D72",
+      "subject": "阿拉伯语",
+      "day": 2,
+      "start": 1080,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker"
+      ],
+      "raw": "Salma Samy/Sarah Shaker"
+    },
+    {
+      "cell": "E72",
+      "subject": "阿拉伯语",
+      "day": 3,
+      "start": 1080,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker"
+      ],
+      "raw": "Salma Samy/Sarah Shaker"
+    },
+    {
+      "cell": "F72",
+      "subject": "阿拉伯语",
+      "day": 4,
+      "start": 1080,
+      "names": [
+        "Sarah Shaker"
+      ],
+      "raw": "Sarah Shaker"
+    },
+    {
+      "cell": "B73",
+      "subject": "阿拉伯语",
+      "day": 0,
+      "start": 1110,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker",
+        "Mayar Yousry"
+      ],
+      "raw": "Salma Samy/Sarah Shaker/Mayar Yousry"
+    },
+    {
+      "cell": "C73",
+      "subject": "阿拉伯语",
+      "day": 1,
+      "start": 1110,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker",
+        "Mayar Yousry"
+      ],
+      "raw": "Salma Samy/Sarah Shaker/Mayar Yousry"
+    },
+    {
+      "cell": "D73",
+      "subject": "阿拉伯语",
+      "day": 2,
+      "start": 1110,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker"
+      ],
+      "raw": "Salma Samy/Sarah Shaker"
+    },
+    {
+      "cell": "E73",
+      "subject": "阿拉伯语",
+      "day": 3,
+      "start": 1110,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker"
+      ],
+      "raw": "Salma Samy/Sarah Shaker"
+    },
+    {
+      "cell": "F73",
+      "subject": "阿拉伯语",
+      "day": 4,
+      "start": 1110,
+      "names": [
+        "Sarah Shaker"
+      ],
+      "raw": "Sarah Shaker"
+    },
+    {
+      "cell": "B74",
+      "subject": "阿拉伯语",
+      "day": 0,
+      "start": 1140,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker",
+        "Mayar Yousry"
+      ],
+      "raw": "Salma Samy/Sarah Shaker/Mayar Yousry"
+    },
+    {
+      "cell": "C74",
+      "subject": "阿拉伯语",
+      "day": 1,
+      "start": 1140,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker",
+        "Mayar Yousry"
+      ],
+      "raw": "Salma Samy/Sarah Shaker/Mayar Yousry"
+    },
+    {
+      "cell": "D74",
+      "subject": "阿拉伯语",
+      "day": 2,
+      "start": 1140,
+      "names": [
+        "Salma Samy",
+        "Mayar Yousry",
+        "Sarah Shaker"
+      ],
+      "raw": "Salma Samy/Mayar Yousry/Sarah Shaker"
+    },
+    {
+      "cell": "E74",
+      "subject": "阿拉伯语",
+      "day": 3,
+      "start": 1140,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker"
+      ],
+      "raw": "Salma Samy/Sarah Shaker"
+    },
+    {
+      "cell": "F74",
+      "subject": "阿拉伯语",
+      "day": 4,
+      "start": 1140,
+      "names": [
+        "Mayar Yousry",
+        "Sarah Shaker"
+      ],
+      "raw": "Mayar Yousry/Sarah Shaker"
+    },
+    {
+      "cell": "B75",
+      "subject": "阿拉伯语",
+      "day": 0,
+      "start": 1170,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker",
+        "Mayar Yousry"
+      ],
+      "raw": "Salma Samy/Sarah Shaker/Mayar Yousry"
+    },
+    {
+      "cell": "C75",
+      "subject": "阿拉伯语",
+      "day": 1,
+      "start": 1170,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker",
+        "Mayar Yousry"
+      ],
+      "raw": "Salma Samy/Sarah Shaker/Mayar Yousry"
+    },
+    {
+      "cell": "D75",
+      "subject": "阿拉伯语",
+      "day": 2,
+      "start": 1170,
+      "names": [
+        "Salma Samy",
+        "Mayar Yousry",
+        "Sarah Shaker"
+      ],
+      "raw": "Salma Samy/Mayar Yousry/Sarah Shaker"
+    },
+    {
+      "cell": "E75",
+      "subject": "阿拉伯语",
+      "day": 3,
+      "start": 1170,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker"
+      ],
+      "raw": "Salma Samy/Sarah Shaker"
+    },
+    {
+      "cell": "F75",
+      "subject": "阿拉伯语",
+      "day": 4,
+      "start": 1170,
+      "names": [
+        "Mayar Yousry",
+        "Sarah Shaker"
+      ],
+      "raw": "Mayar Yousry/Sarah Shaker"
+    },
+    {
+      "cell": "B76",
+      "subject": "阿拉伯语",
+      "day": 0,
+      "start": 1200,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker",
+        "Mayar Yousry"
+      ],
+      "raw": "Salma Samy/Sarah Shaker/Mayar Yousry"
+    },
+    {
+      "cell": "C76",
+      "subject": "阿拉伯语",
+      "day": 1,
+      "start": 1200,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker",
+        "Mayar Yousry"
+      ],
+      "raw": "Salma Samy/Sarah Shaker/Mayar Yousry"
+    },
+    {
+      "cell": "D76",
+      "subject": "阿拉伯语",
+      "day": 2,
+      "start": 1200,
+      "names": [
+        "Salma Samy",
+        "Mayar Yousry",
+        "Sarah Shaker"
+      ],
+      "raw": "Salma Samy/Mayar Yousry/Sarah Shaker"
+    },
+    {
+      "cell": "E76",
+      "subject": "阿拉伯语",
+      "day": 3,
+      "start": 1200,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker"
+      ],
+      "raw": "Salma Samy/Sarah Shaker"
+    },
+    {
+      "cell": "F76",
+      "subject": "阿拉伯语",
+      "day": 4,
+      "start": 1200,
+      "names": [
+        "Mayar Yousry",
+        "Sarah Shaker"
+      ],
+      "raw": "Mayar Yousry/Sarah Shaker"
+    },
+    {
+      "cell": "B77",
+      "subject": "阿拉伯语",
+      "day": 0,
+      "start": 1230,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker",
+        "Mayar Yousry"
+      ],
+      "raw": "Salma Samy/Sarah Shaker/Mayar Yousry"
+    },
+    {
+      "cell": "C77",
+      "subject": "阿拉伯语",
+      "day": 1,
+      "start": 1230,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker",
+        "Mayar Yousry"
+      ],
+      "raw": "Salma Samy/Sarah Shaker/Mayar Yousry"
+    },
+    {
+      "cell": "D77",
+      "subject": "阿拉伯语",
+      "day": 2,
+      "start": 1230,
+      "names": [
+        "Salma Samy",
+        "Mayar Yousry",
+        "Sarah Shaker"
+      ],
+      "raw": "Salma Samy/Mayar Yousry/Sarah Shaker"
+    },
+    {
+      "cell": "E77",
+      "subject": "阿拉伯语",
+      "day": 3,
+      "start": 1230,
+      "names": [
+        "Salma Samy",
+        "Sarah Shaker"
+      ],
+      "raw": "Salma Samy/Sarah Shaker"
+    },
+    {
+      "cell": "F77",
+      "subject": "阿拉伯语",
+      "day": 4,
+      "start": 1230,
+      "names": [
+        "Mayar Yousry",
+        "Sarah Shaker"
+      ],
+      "raw": "Mayar Yousry/Sarah Shaker"
+    }
+  ],
+  "notes": [
+    "仅导入 slot 总表，日期工作表和 report 未作为固定排班导入。",
+    "表格未提供性别、时薪和币种，保留待补充；不会自动计算工资。",
+    "原表只包含周日到周四，周五周六未设置。",
+    "导入固定模板默认从 2026-10-18 起生效，不回填历史工资。",
+    "已按用户确认合并 Hadir ElNagga → Hadir ElNaggar（C16）、ara Diaa → Sara Diaa（C18）；原单元格文字保留供核对。"
+  ]
+}

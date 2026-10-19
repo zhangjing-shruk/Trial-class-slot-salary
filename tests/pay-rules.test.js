@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {applySourceImport,applyConfirmedPayRules} from '../src/import-data.js';
+import {calculate} from '../src/payroll.js';
+test('Dalia rule migration preserves schedules and records and does not repeat',()=>{const d={teachers:[],records:{example:{completed:2}}};applySourceImport(d);const t=d.teachers.find(t=>t.name==='Dalia Bassem');const schedule=structuredClone(t.schedules);applyConfirmedPayRules(d);assert.equal(t.rate,270);assert.equal(t.currency,'EGP');assert.equal(t.payMode,'hourly');assert.deepEqual(t.schedules,schedule);assert.deepEqual(d.records,{example:{completed:2}});assert.equal(calculate(t,'2026-10-19',{completed:2}).total,540);assert.equal(calculate(t,'2026-10-19',{completed:0}).total,540);t.rate=280;applyConfirmedPayRules(d);assert.equal(t.rate,280);assert.equal(d.migrations.length,1);assert.equal(d.teachers.filter(t=>t.payMode==='hourly').length,1);});
