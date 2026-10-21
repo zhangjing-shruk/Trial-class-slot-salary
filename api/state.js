@@ -5,11 +5,7 @@ function send(response, status, body) {
 }
 
 function configured() {
-  return Boolean(process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY && process.env.APP_ACCESS_CODE);
-}
-
-function authorized(request) {
-  return request.headers['x-slot-salary-access-code'] === process.env.APP_ACCESS_CODE;
+  return Boolean(process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY);
 }
 
 async function supabase(path, options = {}) {
@@ -28,7 +24,6 @@ async function supabase(path, options = {}) {
 export default async function handler(request, response) {
   response.setHeader('Cache-Control','private, no-store');
   if (!configured()) return send(response, 503, { error: 'Supabase is not configured yet.' });
-  if (!authorized(request)) return send(response, 401, { error: 'Enter the shared access code.' });
 
   if (request.method === 'GET') {
     const result = await supabase('app_state?id=eq.' + rowId + '&select=data,revision,updated_at');
@@ -39,7 +34,8 @@ export default async function handler(request, response) {
 
   if (request.method === 'PUT') {
     const { data, revision } = request.body ?? {};
-    if (!data || typeof data !== 'object') return send(response, 400, { error: 'A complete data snapshot is required.' });
+    if (!data || !Array.isArray(data.teachers) || !data.records || typeof data.records !== 'object' || Array.isArray(data.records)) return send(response, 400, { error: 'A complete data snapshot is required.' });
+    if(revision!==null&&revision!==undefined&&(!Number.isSafeInteger(revision)||revision<1))return send(response,400,{error:'Invalid revision.'});
 
     if (revision === null || revision === undefined) {
       const created = await supabase('app_state', {

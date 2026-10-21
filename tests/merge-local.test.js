@@ -1,0 +1,7 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {seed,applyConfirmedPayRules} from '../src/import-data.js';
+import {mergeLocalChanges} from '../src/merge-local.js';
+const base=()=>{const x={teachers:structuredClone(seed.teachers),records:{}};applyConfirmedPayRules(x);return x;};
+test('previous operator edits merge without replacing another operators changes',()=>{const local=base(),remote=base();local.teachers[0].rate=200;local.teachers[0].currency='EGP';remote.teachers[1].rate=180;local.records['some:2026-10-21']={completed:2};const merged=mergeLocalChanges(local,remote);assert.equal(merged.data.teachers[0].rate,200);assert.equal(merged.data.teachers[1].rate,180);assert.equal(merged.data.records['some:2026-10-21'].completed,2);assert.deepEqual(merged.conflicts,[]);});
+test('same field conflicts preserve shared values and return both versions for review',()=>{const local=base(),remote=base();local.teachers[0].rate=200;remote.teachers[0].rate=250;const merged=mergeLocalChanges(local,remote);assert.equal(merged.data.teachers[0].rate,250);assert.equal(merged.conflicts[0].local,200);assert.equal(merged.conflicts[0].shared,250);assert.equal(local.teachers[0].rate,200);});
+test('unmodified old local copy cannot overwrite updated cloud schedule',()=>{const local=base(),remote=base();remote.teachers[0].schedules[0].ranges=[];const merged=mergeLocalChanges(local,remote);assert.deepEqual(merged.data.teachers[0].schedules[0].ranges,[]);assert.equal(merged.changed,0);});
