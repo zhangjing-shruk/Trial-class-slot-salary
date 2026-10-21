@@ -338,6 +338,24 @@ export const messages = {
   "导入固定模板默认从 2026-10-18 起生效，不回填历史工资。": "Imported recurring schedules take effect on 2026-10-18. Historical pay is not backfilled.",
   "已按用户确认合并 Hadir ElNagga → Hadir ElNaggar（C16）、ara Diaa → Sara Diaa（C18）；原单元格文字保留供核对。": "As confirmed, Hadir ElNagga was merged into Hadir ElNaggar (C16), and ara Diaa into Sara Diaa (C18). Original cell text is retained for review."
 };
+Object.assign(messages, {
+  "已连接共享数据": "Shared data connected",
+  "正在连接数据…": "Connecting data…",
+  "共享数据已连接到 Supabase，修改将自动同步给使用相同访问码的运营人员。": "Shared data is connected to Supabase. Changes will sync automatically for operators using the same access code.",
+  "连接共享数据": "Connect shared data",
+  "重新加载共享数据": "Reload shared data",
+  "输入两位运营共同保存的访问码。首次连接会将当前浏览器的数据初始化到 Supabase；后续修改会自动同步。": "Enter the access code shared by both operators. Your first connection initializes this browser's data in Supabase; later changes sync automatically.",
+  "共享访问码": "Shared access code",
+  "请输入共享访问码": "Enter the shared access code",
+  "访问码不会写入 Supabase 或 GitHub，只保存在当前浏览器，并用于验证 Vercel 的服务端请求。": "The code is not stored in Supabase or GitHub. It stays in this browser and verifies requests handled by Vercel.",
+  "连接并同步": "Connect and sync",
+  "请输入共享访问码。": "Enter the shared access code.",
+  "已连接共享 Supabase 数据。": "Shared Supabase data connected.",
+  "共享数据已初始化。": "Shared data initialized.",
+  "初始化共享数据失败。": "Unable to initialize shared data.",
+  "无法连接共享数据。": "Unable to connect shared data.",
+  "同步失败。请重新加载共享数据后再保存。": "Sync failed. Reload shared data before saving again."
+});
 export function translate(value,language='zh'){
  if(typeof value!=='string'||language!=='en')return value;
  if(Object.prototype.hasOwnProperty.call(messages,value))return messages[value];

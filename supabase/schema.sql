@@ -70,5 +70,27 @@ create table if not exists public.date_schedules (
 alter table public.date_schedules enable row level security;
 -- 服务端需校验 ranges 的整点/半点、先后顺序、无重叠及已录入工资日期限制。
 
+-- 应用当前采用一份带版本号的完整运营数据快照，避免将服务密钥放入浏览器。
+-- Vercel 的 /api/state 使用 service role 访问该表；不创建匿名读写策略。
+create table if not exists public.app_state (
+  id text primary key check (id = 'primary'),
+  data jsonb not null,
+  revision integer not null default 1 check (revision > 0),
+  updated_at timestamptz not null default now()
+);
+alter table public.app_state enable row level security;
+revoke all on table public.app_state from anon, authenticated;
+grant select, insert, update on table public.app_state to service_role;
+
+-- 应用当前采用一份带版本号的完整运营数据快照，避免将服务密钥放入浏览器。
+-- Vercel 的 /api/state 使用 service role 访问该表；不创建匿名读写策略。
+create table if not exists public.app_state (
+  id text primary key check (id = 'primary'),
+  data jsonb not null,
+  revision integer not null default 1 check (revision > 0),
+  updated_at timestamptz not null default now()
+);
+alter table public.app_state enable row level security;
+
 -- 兼容已运行旧准备稿的数据库（尚未连接正式数据）。
 alter table public.teachers add column if not exists pay_mode text not null default 'slot' check (pay_mode in ('slot','hourly'));
