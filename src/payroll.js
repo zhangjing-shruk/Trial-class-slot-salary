@@ -14,13 +14,14 @@ export function saveDateSchedule(teacher,date,ranges,reason,hasDailyRecord=false
  teacher.dateSchedules??={};teacher.dateSchedules[date]={ranges:ranges.map(r=>({start:r.start,end:r.end})),reason:reason.trim()};
 }
 export function saveFixedSchedule(teacher,effective,ranges,recordDates=[]){
- if(!/^\d{4}-\d{2}-\d{2}$/.test(effective))throw Error('请选择生效日期');
- const latest=[...(teacher.schedules||[])].sort((a,b)=>b.effective.localeCompare(a.effective))[0];
- if(latest&&effective<latest.effective)throw Error(`生效日不能早于最新版本 ${latest.effective}`);
- if(recordDates.some(d=>d>=effective))throw Error('生效日期涉及已录入的工资记录，请选择这些记录之后的日期');
+ const parsed=new Date(effective+'T12:00:00Z');
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(effective)||!Number.isFinite(parsed.getTime())||parsed.toISOString().slice(0,10)!==effective)throw Error('请选择有效日期');
+ const existing=(teacher.schedules||[]).find(s=>s.effective===effective);
+ const nextVersion=[...(teacher.schedules||[])].filter(s=>s.effective>effective).sort((a,b)=>a.effective.localeCompare(b.effective))[0];
+ if(recordDates.some(d=>d>=effective&&(!nextVersion||d<nextVersion.effective)))throw Error('该排班适用期间已有工资记录，请通过每日记录的异常调整，避免改动已录入工资。');
  for(let d=0;d<7;d++)slotsFor(ranges.filter(r=>Number(r.day)===d));
  const next={effective,ranges:JSON.parse(JSON.stringify(ranges))};
- if(latest?.effective===effective){teacher.scheduleAudit??=[];teacher.scheduleAudit.push(JSON.parse(JSON.stringify(latest)));teacher.schedules[teacher.schedules.indexOf(latest)]=next;}
+ if(existing){teacher.scheduleAudit??=[];teacher.scheduleAudit.push(JSON.parse(JSON.stringify(existing)));teacher.schedules[teacher.schedules.indexOf(existing)]=next;}
  else{teacher.schedules??=[];teacher.schedules.push(next);}
 }
 export function effectiveSlots(teacher,date,exceptions=[]){const s=new Set(slotsFor(scheduleFor(teacher,date)));for(const e of exceptions.filter(e=>e.kind==='add'))for(const m of slotsFor([e]))s.add(m);for(const e of exceptions.filter(e=>e.kind!=='add'))for(const m of slotsFor([e]))s.delete(m);return [...s].sort((a,b)=>a-b);}
