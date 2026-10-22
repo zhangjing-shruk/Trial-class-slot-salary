@@ -1,8 +1,9 @@
 <script setup>
+import {formatTime as clock} from './time-format.js';
 import {ref,computed,watch} from 'vue';
 import {tr,locale} from './i18n.js';
 import {ChevronLeft,ChevronRight,CalendarDays,Check,UserRound,ArrowUpRight} from 'lucide-vue-next';
-import {WEEKDAYS,cairoToday,weekday,clock,minutes,effectiveSlots} from './payroll.js';
+import {WEEKDAYS,cairoToday,weekday,minutes,effectiveSlots} from './payroll.js';
 const props=defineProps({mode:String,teachers:Array,records:Object,initialTeacher:String,initialDate:String});
 const emit=defineEmits(['edit-fixed','edit-date','teacher','date']);
 const anchor=ref(props.initialDate||cairoToday()),chosenTeacher=ref(props.initialTeacher||props.teachers[0]?.id||''),subject=ref('英语'),focusTime=ref(720);
