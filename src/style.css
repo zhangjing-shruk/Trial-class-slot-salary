@@ -13,3 +13,4 @@
 @media(max-width:850px){html[lang=en] .sidebar nav button{font-size:0;padding:10px 12px}.topbar>.top-right{display:none}.modal-language{right:52px}.modal .eyebrow{font-size:8px;padding-right:130px}.language-switch button{padding:4px 6px}html[lang=en] .page-heading p{max-width:200px}.modal h2{padding-top:7px}.topbar{padding-right:14px}}
 .sync-status{font-size:10px;color:#788b7c;gap:6px}.sync-status>span{width:6px;height:6px;border-radius:50%;background:#aab5ad}.sync-status.connected{color:#3d7c56}.sync-status.connected>span{background:#4b9a68}.sync-status.connecting>span{background:#c49e55}.preview-banner.connected{background:#edf7ef;color:#61816a}
 .preview-banner button{display:inline-flex}.info-bar{flex-wrap:wrap}
+.danger-button{background:#fff0ed;border:1px solid #e9b6aa;border-radius:6px;padding:10px 14px;color:#ab4631;font-size:12px}.danger-button:disabled{opacity:.4;cursor:not-allowed}.modal-actions>.danger-button:first-child{margin-right:auto}
