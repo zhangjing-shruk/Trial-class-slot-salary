@@ -1,4 +1,5 @@
 const rowId = 'primary';
+import {START_DATE} from '../src/operating-period.js';
 
 function send(response, status, body) {
   response.status(status).json(body);
@@ -36,6 +37,13 @@ export default async function handler(request, response) {
     const { data, revision } = request.body ?? {};
     if (!data || !Array.isArray(data.teachers) || !data.records || typeof data.records !== 'object' || Array.isArray(data.records)) return send(response, 400, { error: 'A complete data snapshot is required.' });
     if(revision!==null&&revision!==undefined&&(!Number.isSafeInteger(revision)||revision<1))return send(response,400,{error:'Invalid revision.'});
+    const earlier=Object.entries(data.records).filter(([key])=>key.slice(-10)<START_DATE);
+    if(earlier.length){
+      const current=await supabase('app_state?id=eq.'+rowId+'&select=data');
+      if(!current.ok)return send(response,502,{error:'Unable to validate record dates.'});
+      const prior=(await current.json())[0]?.data?.records||{};
+      if(earlier.some(([key,value])=>JSON.stringify(prior[key])!==JSON.stringify(value)))return send(response,400,{error:'Records start on 2026-10-20. Earlier records cannot be added or modified.'});
+    }
 
     if (revision === null || revision === undefined) {
       const created = await supabase('app_state', {

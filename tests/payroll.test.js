@@ -1,17 +1,17 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {calculate,slotsFor,scheduleFor,saveDateSchedule} from '../src/payroll.js';
 const t={rate:150,currency:'EGP',schedules:[{effective:'2026-01-01',ranges:[{day:0,start:'16:00',end:'21:00'}]}]};
-test('user example: 10 slots, 4 completed, total 925',()=>{const p=calculate(t,'2026-10-18',{completed:4});assert.equal(p.total,925);assert.equal(p.lesson,300);assert.equal(p.compensation,225);assert.equal(p.bonus,400);});
-test('leave removes both pay and evening bonus',()=>{const p=calculate(t,'2026-10-18',{completed:4,exceptions:[{kind:'leave',start:'19:00',end:'21:00'}]});assert.equal(p.slots.length,6);assert.equal(p.total,575);});
-test('separate half-hours do not earn an hour bonus',()=>{const p=calculate({...t,schedules:[]},'2026-10-18',{exceptions:[{kind:'add',start:'17:00',end:'17:30'},{kind:'add',start:'19:00',end:'19:30'}]});assert.equal(p.bonus,0);});
-test('90 contiguous evening minutes earns only one hour',()=>assert.equal(calculate({...t,schedules:[]},'2026-10-18',{exceptions:[{kind:'add',start:'17:00',end:'18:30'}]}).bonus,100));
-test('JOD never receives evening bonus',()=>assert.equal(calculate({...t,currency:'JOD'},'2026-10-18').bonus,0));
-test('historical schedule stays effective before new revision',()=>{const teacher={...t,schedules:[...t.schedules,{effective:'2026-11-01',ranges:[]}]};assert.equal(calculate(teacher,'2026-10-18').slots.length,10);assert.equal(calculate(teacher,'2026-11-01').slots.length,0);});
-test('completed count cannot exceed available slots',()=>assert.throws(()=>calculate(t,'2026-10-18',{completed:11})));
+test('user example: 10 slots, 4 completed, total 925',()=>{const p=calculate(t,'2026-10-25',{completed:4});assert.equal(p.total,925);assert.equal(p.lesson,300);assert.equal(p.compensation,225);assert.equal(p.bonus,400);});
+test('leave removes both pay and evening bonus',()=>{const p=calculate(t,'2026-10-25',{completed:4,exceptions:[{kind:'leave',start:'19:00',end:'21:00'}]});assert.equal(p.slots.length,6);assert.equal(p.total,575);});
+test('separate half-hours do not earn an hour bonus',()=>{const p=calculate({...t,schedules:[]},'2026-10-25',{exceptions:[{kind:'add',start:'17:00',end:'17:30'},{kind:'add',start:'19:00',end:'19:30'}]});assert.equal(p.bonus,0);});
+test('90 contiguous evening minutes earns only one hour',()=>assert.equal(calculate({...t,schedules:[]},'2026-10-25',{exceptions:[{kind:'add',start:'17:00',end:'18:30'}]}).bonus,100));
+test('JOD never receives evening bonus',()=>assert.equal(calculate({...t,currency:'JOD'},'2026-10-25').bonus,0));
+test('historical schedule stays effective before new revision',()=>{const teacher={...t,schedules:[...t.schedules,{effective:'2026-11-01',ranges:[]}]};assert.equal(calculate(teacher,'2026-10-25').slots.length,10);assert.equal(calculate(teacher,'2026-11-01').slots.length,0);});
+test('completed count cannot exceed available slots',()=>assert.throws(()=>calculate(t,'2026-10-25',{completed:11})));
 test('overlap and non half-hour times rejected',()=>{assert.throws(()=>slotsFor([{start:'16:15',end:'17:00'}]));assert.throws(()=>slotsFor([{start:'16:00',end:'17:00'},{start:'16:30',end:'18:00'}]));});
-test('add overlaps do not double count; leave takes priority',()=>assert.equal(calculate(t,'2026-10-18',{exceptions:[{kind:'add',start:'20:00',end:'22:00'},{kind:'leave',start:'20:30',end:'21:30'}]}).slots.length,10));
-test('zero completed is a valid saved result, with adjustments',()=>assert.equal(calculate(t,'2026-10-18',{completed:0,adjustments:[{amount:-25}]}).total,750));
+test('add overlaps do not double count; leave takes priority',()=>assert.equal(calculate(t,'2026-10-25',{exceptions:[{kind:'add',start:'20:00',end:'22:00'},{kind:'leave',start:'20:30',end:'21:30'}]}).slots.length,10));
+test('zero completed is a valid saved result, with adjustments',()=>assert.equal(calculate(t,'2026-10-25',{completed:0,adjustments:[{amount:-25}]}).total,750));
 
-test('JOD retains half-pay compensation and no evening bonus',()=>{const p=calculate({...t,rate:20,currency:'JOD'},'2026-10-18',{completed:4});assert.equal(p.lesson,40);assert.equal(p.compensation,30);assert.equal(p.bonus,0);assert.equal(p.total,70);});
+test('JOD retains half-pay compensation and no evening bonus',()=>{const p=calculate({...t,rate:20,currency:'JOD'},'2026-10-25',{completed:4});assert.equal(p.lesson,40);assert.equal(p.compensation,30);assert.equal(p.bonus,0);assert.equal(p.total,70);});
 
 const fridayTeacher=()=>({...t,schedules:[{effective:'2026-01-01',ranges:[{day:5,start:'16:00',end:'21:00'}]}]});
 test('Friday fixed schedule is used when no date override exists',()=>assert.equal(calculate(fridayTeacher(),'2026-10-23').slots.length,10));
@@ -22,8 +22,8 @@ test('date schedule still applies add and leave exceptions',()=>{const teacher=f
 test('invalid date schedules do not overwrite an existing valid schedule',()=>{const teacher=fridayTeacher();saveDateSchedule(teacher,'2026-10-23',[],'休息');assert.throws(()=>saveDateSchedule(teacher,'2026-10-23',[{start:'17:15',end:'19:00'}],'错误'));assert.deepEqual(scheduleFor(teacher,'2026-10-23'),[]);assert.throws(()=>saveDateSchedule(teacher,'2026-10-23',[],'变更',true));});
 
 const hourly={rate:270,currency:'EGP',payMode:'hourly',schedules:[{effective:'2026-01-01',ranges:[{day:1,start:'12:00',end:'16:00'}]}]};
-test('hourly teacher earns 1080 for four open hours regardless of completed lessons',()=>{for(const completed of [0,2,8]){const p=calculate(hourly,'2026-10-19',{completed});assert.equal(p.total,1080);assert.equal(p.hourlyPay,1080);assert.equal(p.paidHours,4);assert.equal(p.lesson,0);assert.equal(p.compensation,0);assert.equal(p.halfPaySlots,0);assert.equal(p.completed,completed);}});
-test('hourly mode never awards evening bonus, including newly added evening slots',()=>{const p=calculate(hourly,'2026-10-19',{completed:2,exceptions:[{kind:'add',start:'17:00',end:'19:00'}]});assert.equal(p.paidHours,6);assert.equal(p.total,1620);assert.equal(p.bonus,0);assert.equal(p.bonusHours,0);});
-test('hourly mode handles half-hour leave, added slots and manual adjustments',()=>{const p=calculate(hourly,'2026-10-19',{completed:3,exceptions:[{kind:'leave',start:'12:00',end:'12:30'},{kind:'add',start:'16:00',end:'17:00'}],adjustments:[{amount:-15}]});assert.equal(p.paidHours,4.5);assert.equal(p.hourlyPay,1215);assert.equal(p.total,1200);});
-test('hourly mode still validates completed lesson count',()=>assert.throws(()=>calculate(hourly,'2026-10-19',{completed:9})));
-test('hourly mode no schedule means no wage, and standard slot mode remains unchanged',()=>{assert.equal(calculate(hourly,'2026-10-20').total,0);assert.equal(calculate(t,'2026-10-18',{completed:4}).total,925);});
+test('hourly teacher earns 1080 for four open hours regardless of completed lessons',()=>{for(const completed of [0,2,8]){const p=calculate(hourly,'2026-10-26',{completed});assert.equal(p.total,1080);assert.equal(p.hourlyPay,1080);assert.equal(p.paidHours,4);assert.equal(p.lesson,0);assert.equal(p.compensation,0);assert.equal(p.halfPaySlots,0);assert.equal(p.completed,completed);}});
+test('hourly mode never awards evening bonus, including newly added evening slots',()=>{const p=calculate(hourly,'2026-10-26',{completed:2,exceptions:[{kind:'add',start:'17:00',end:'19:00'}]});assert.equal(p.paidHours,6);assert.equal(p.total,1620);assert.equal(p.bonus,0);assert.equal(p.bonusHours,0);});
+test('hourly mode handles half-hour leave, added slots and manual adjustments',()=>{const p=calculate(hourly,'2026-10-26',{completed:3,exceptions:[{kind:'leave',start:'12:00',end:'12:30'},{kind:'add',start:'16:00',end:'17:00'}],adjustments:[{amount:-15}]});assert.equal(p.paidHours,4.5);assert.equal(p.hourlyPay,1215);assert.equal(p.total,1200);});
+test('hourly mode still validates completed lesson count',()=>assert.throws(()=>calculate(hourly,'2026-10-26',{completed:9})));
+test('hourly mode no schedule means no wage, and standard slot mode remains unchanged',()=>{assert.equal(calculate(hourly,'2026-10-20').total,0);assert.equal(calculate(t,'2026-10-25',{completed:4}).total,925);});

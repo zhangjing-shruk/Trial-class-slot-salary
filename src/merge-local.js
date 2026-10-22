@@ -1,4 +1,5 @@
 import {seed,applyConfirmedPayRules} from './import-data.js';
+import {START_DATE} from './operating-period.js';
 const equal=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 const clone=x=>JSON.parse(JSON.stringify(x));
 export function mergeLocalChanges(local,remote){
@@ -17,6 +18,7 @@ export function mergeLocalChanges(local,remote){
   }
  }
  for(const [key,value]of Object.entries(local.records||{})){
+  if(key.slice(-10)<START_DATE)continue;
   if(key.startsWith('demo-zhang:'))continue;
   if(result.records[key]===undefined){result.records[key]=clone(value);changed++;}
   else if(!equal(value,result.records[key]))conflicts.push({teacher:key,field:'dailyRecord',local:value,shared:result.records[key]});
