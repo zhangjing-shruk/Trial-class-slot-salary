@@ -6,6 +6,11 @@ export const clock = m => `${String(Math.floor(m/60)).padStart(2,'0')}:${String(
 export function slotsFor(ranges){const s=new Set();for(const r of ranges){const a=minutes(r.start),b=minutes(r.end);if(a%30||b%30||b<=a)throw Error('时间须为整点或半点，且结束晚于开始');for(let n=a;n<b;n+=30){if(s.has(n))throw Error('时间段不能重叠');s.add(n);}}return [...s].sort((a,b)=>a-b);}
 export function fixedScheduleFor(teacher,date){return [...(teacher.schedules||[])].filter(s=>s.effective<=date).sort((a,b)=>b.effective.localeCompare(a.effective))[0]?.ranges.filter(r=>Number(r.day)===weekday(date))||[];}
 export function scheduleFor(teacher,date){return teacher.dateSchedules?.[date]?.ranges ?? fixedScheduleFor(teacher,date);}
+export function scheduleEditorState(teacher,today){
+ const versions=[...(teacher.schedules||[])].sort((a,b)=>b.effective.localeCompare(a.effective));
+ const version=versions.find(v=>v.effective===teacher.lastScheduleEffective)||versions[0];
+ return {effective:version?.effective||today,ranges:JSON.parse(JSON.stringify(version?.ranges||[])),version:version?.effective||'new'};
+}
 export function saveDateSchedule(teacher,date,ranges,reason,hasDailyRecord=false){
  if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||!Number.isFinite(new Date(date+'T12:00:00Z').getTime()))throw Error('请选择有效日期');
  if(hasDailyRecord)throw Error('该日期已录入工资，请在每日记录中通过异常调整时间，以保留原始排班');
@@ -23,6 +28,7 @@ export function saveFixedSchedule(teacher,effective,ranges,recordDates=[]){
  const next={effective,ranges:JSON.parse(JSON.stringify(ranges))};
  if(existing){teacher.scheduleAudit??=[];teacher.scheduleAudit.push(JSON.parse(JSON.stringify(existing)));teacher.schedules[teacher.schedules.indexOf(existing)]=next;}
  else{teacher.schedules??=[];teacher.schedules.push(next);}
+ teacher.lastScheduleEffective=effective;
 }
 export function effectiveSlots(teacher,date,exceptions=[]){const s=new Set(slotsFor(scheduleFor(teacher,date)));for(const e of exceptions.filter(e=>e.kind==='add'))for(const m of slotsFor([e]))s.add(m);for(const e of exceptions.filter(e=>e.kind!=='add'))for(const m of slotsFor([e]))s.delete(m);return [...s].sort((a,b)=>a-b);}
 export const payModeLabel = mode => mode==='hourly'?'按开放时长':'按 slot 完课与补偿';

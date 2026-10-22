@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {saveFixedSchedule,scheduleEditorState} from '../src/payroll.js';
+const ranges=[{day:1,start:'12:00',end:'16:00'}];
+test('reopening past and future saves shows the saved date and matching periods',()=>{const t={schedules:[]};for(const date of ['2026-10-20','2026-10-28','2026-10-20']){saveFixedSchedule(t,date,ranges);const reopened=scheduleEditorState(JSON.parse(JSON.stringify(t)),'2026-10-22');assert.equal(reopened.effective,date);assert.equal(reopened.version,date);assert.deepEqual(reopened.ranges,ranges);}});
+test('older data without a remembered version opens its real latest date',()=>{const t={schedules:[{effective:'2026-10-20',ranges},{effective:'2026-10-28',ranges:[]}]};const state=scheduleEditorState(t,'2026-10-22');assert.equal(state.effective,'2026-10-28');assert.deepEqual(state.ranges,[]);});
+test('a new teacher alone defaults to today and editing a draft does not change saved hours',()=>{assert.equal(scheduleEditorState({schedules:[]},'2026-10-22').effective,'2026-10-22');const t={schedules:[{effective:'2026-10-20',ranges:structuredClone(ranges)}]};scheduleEditorState(t,'2026-10-22').ranges[0].start='13:00';assert.equal(t.schedules[0].ranges[0].start,'12:00');});
