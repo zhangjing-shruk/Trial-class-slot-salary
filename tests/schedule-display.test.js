@@ -1,0 +1,9 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {scheduleBlocks} from '../src/schedule-display.js';
+import {effectiveSlots,slotsFor} from '../src/payroll.js';
+const teacher=()=>({schedules:[{effective:'2026-10-20',ranges:[{day:5,start:'13:00',end:'16:00'},{day:6,start:'13:00',end:'16:00'}]}]});
+test('Friday and Saturday recurring hours show FIX every week',()=>{for(const d of ['2026-10-23','2026-10-24','2026-10-30','2026-10-31'])assert.deepEqual(scheduleBlocks(teacher(),d),[{start:'13:00',end:'16:00',kind:'FIX'}]);});
+test('specific weekend override shows TEM for only the configured date',()=>{const t=teacher();t.dateSchedules={'2026-10-23':{ranges:[{start:'13:00',end:'16:00'}]}};assert.equal(scheduleBlocks(t,'2026-10-23')[0].kind,'TEM');assert.equal(scheduleBlocks(t,'2026-10-30')[0].kind,'FIX');t.dateSchedules['2026-10-23'].ranges=[];assert.deepEqual(scheduleBlocks(t,'2026-10-23'),[]);});
+test('fixed hours and extra hours show together without double counting overlaps',()=>{const t=teacher(),r={exceptions:[{kind:'add',start:'15:00',end:'17:00'}]};const blocks=scheduleBlocks(t,'2026-10-23',r);assert.deepEqual(blocks,[{start:'13:00',end:'16:00',kind:'FIX'},{start:'16:00',end:'17:00',kind:'TEM'}]);assert.deepEqual(slotsFor(blocks),effectiveSlots(t,'2026-10-23',r.exceptions));});
+test('leave and absences are removed from displayed availability',()=>{const blocks=scheduleBlocks(teacher(),'2026-10-23',{exceptions:[{kind:'leave',start:'14:00',end:'15:00'}]});assert.deepEqual(blocks,[{start:'13:00',end:'14:00',kind:'FIX'},{start:'15:00',end:'16:00',kind:'FIX'}]);});
+test('no slots are shown before operating start or a future effective date',()=>{assert.deepEqual(scheduleBlocks(teacher(),'2026-10-16',{exceptions:[{kind:'add',start:'13:00',end:'16:00'}]}),[]);const t=teacher();t.schedules[0].effective='2026-10-28';assert.deepEqual(scheduleBlocks(t,'2026-10-23'),[]);});
