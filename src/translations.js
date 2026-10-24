@@ -357,6 +357,7 @@ Object.assign(messages, {
   "同步失败。请重新加载共享数据后再保存。": "Sync failed. Reload shared data before saving again."
 });
 export function translate(value,language='zh'){
+ if(value==='请输入完整的老师姓名及 ID 以确认删除。'&&language==='en')return 'Enter the full teacher name + ID to confirm deletion.';
  if(value==='显示当天有效的固定与临时时段，已扣除请假和缺席时间。'&&language==='en')return 'Effective recurring and temporary hours, after removing leave and absence.';
  if(value==='系统从 2026-10-20 开始记录，请选择该日或之后的日期。'&&language==='en')return 'Records start on October 20, 2026. Choose that date or later.';
  if(value==='该排班适用期间已有工资记录，请通过每日记录的异常调整，避免改动已录入工资。'&&language==='en')return 'Pay has already been recorded within this schedule period. Use daily exceptions to avoid changing recorded payroll.';

@@ -1,3 +1,4 @@
+import {teacherLabel} from './teachers.js';
 import {seed,applyConfirmedPayRules} from './import-data.js';
 import {START_DATE} from './operating-period.js';
 const equal=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
@@ -11,10 +12,10 @@ export function mergeLocalChanges(local,remote){
   const target=result.teachers.find(t=>t.id===teacher.id);
   if(target?.deletedAt||teacher.deletedAt)continue;
   if(!target){if(!base||!equal(teacher,base)){result.teachers.push(clone(teacher));changed++;}continue;}
-  for(const field of ['name','gender','subject','rate','currency','payMode','schedules','dateSchedules']){
+  for(const field of ['name','teacherId','gender','subject','rate','currency','payMode','schedules','dateSchedules']){
    const value=teacher[field];if(value===undefined||equal(value,base?.[field])||equal(value,target[field]))continue;
    if(equal(target[field],base?.[field])){target[field]=clone(value);changed++;}
-   else conflicts.push({teacher:teacher.name,field,local:value,shared:target[field]});
+   else conflicts.push({teacher:teacherLabel(teacher),field,local:value,shared:target[field]});
   }
  }
  for(const [key,value]of Object.entries(local.records||{})){
