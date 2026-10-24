@@ -1,4 +1,10 @@
 export const messages = {
+ "体验课转化":"Trial Conversions",
+ "按周、按月和科目统计体验课转化，支持历史补录。":"Track trial conversions by week, month and subject, including historical entries.",
+ "完课数和转化数必须为非负整数。":"Completed and converted counts must be non-negative whole numbers.",
+ "转化数不能超过完课数。":"Conversions cannot exceed completed trials.",
+ "请选择有效日期。":"Choose a valid date.",
+ "请先在每日工作台录入该日完课数。":"Record completions in Daily Workspace first.",
   "课时簿": "Slot Ledger",
   "教务管理工作空间": "Teaching Operations Workspace",
   "把时间，算清楚。": "Every hour accounted for.",

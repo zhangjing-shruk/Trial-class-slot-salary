@@ -1,0 +1,24 @@
+<script setup>
+import {ref,computed} from 'vue';
+import {tr,locale} from './i18n.js';
+import {cairoToday,weekday} from './payroll.js';
+import {teacherLabel} from './teachers.js';
+import {conversionRows} from './conversions.js';
+const props=defineProps({data:Object});
+const emit=defineEmits(['edit']);
+const mode=ref('month'),anchor=ref(cairoToday()),subject=ref(''),search=ref(''),sort=ref('rate');
+const copy=(zh,en)=>locale.value==='en'?en:zh;
+const add=(date,n)=>{const d=new Date(date+'T12:00:00Z');d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10);};
+const bounds=computed(()=>{const date=anchor.value||cairoToday();if(mode.value==='week'){const start=add(date,-weekday(date));return [start,add(start,6)];}const d=new Date(date+'T12:00:00Z');d.setUTCMonth(d.getUTCMonth()+1,0);return [date.slice(0,7)+'-01',d.toISOString().slice(0,10)];});
+const rows=computed(()=>conversionRows(props.data,...bounds.value,{subject:subject.value,search:search.value,sort:sort.value}));
+const totals=computed(()=>rows.value.reduce((sum,r)=>({completed:sum.completed+r.completed,converted:sum.converted+r.converted}),{completed:0,converted:0}));
+const percent=n=>n===null?'—':(n*100).toFixed(1)+'%';
+function shift(n){if(mode.value==='week'){anchor.value=add(anchor.value||cairoToday(),n*7);return;}const d=new Date((anchor.value||cairoToday()).slice(0,7)+'-01T12:00:00Z');d.setUTCMonth(d.getUTCMonth()+n);anchor.value=d.toISOString().slice(0,10);}
+</script>
+<template>
+ <div class="board-controls"><div class="segmented"><button :class="{chosen:mode==='week'}" @click="mode='week'">{{tr('按周')}}</button><button :class="{chosen:mode==='month'}" @click="mode='month'">{{tr('按月')}}</button></div><button class="secondary" @click="shift(-1)">{{copy('上一期','Previous')}}</button><input type="date" v-model="anchor" :aria-label="copy('转化统计日期','Conversion report date')"/><button class="secondary" @click="shift(1)">{{copy('下一期','Next')}}</button><span class="muted">{{bounds[0]}} – {{bounds[1]}}</span></div>
+ <div class="info-bar">{{copy('转化率 = 转化为付费学员数 ÷ 体验课完课数。10 月 20 日起完课数来自每日工资记录；此前可手动补录，且不影响工资。每周从周日开始。','Conversion rate = paying students ÷ completed trials. From October 20, completions come from daily payroll; earlier entries are manual and do not affect pay. Weeks start on Sunday.')}}</div>
+ <div class="report-cards conversion-stats"><article class="stat-card"><div class="stat-label">{{copy('体验课完课数','Completed trials')}}</div><div class="stat-number">{{totals.completed}}</div></article><article class="stat-card"><div class="stat-label">{{copy('转化付费学员数','Paying students')}}</div><div class="stat-number">{{totals.converted}}</div></article><article class="stat-card"><div class="stat-label">{{copy('整体转化率','Overall conversion rate')}}</div><div class="stat-number">{{percent(totals.completed?totals.converted/totals.completed:null)}}</div></article></div>
+ <section class="panel"><div class="panel-title directory-header"><h2>{{copy('老师体验课转化','Trial conversions by teacher')}} <span>{{rows.length}}</span></h2><div class="directory-filters"><input type="search" v-model="search" :placeholder="copy('搜索老师姓名或 ID…','Search name or ID…')" :aria-label="copy('搜索转化老师','Search conversion teachers')"/><select v-model="subject" :aria-label="copy('转化科目筛选','Conversion subject filter')"><option value="">{{tr('全部科目')}}</option><option v-for="s in ['英语','阿拉伯语','数学']" :value="s">{{tr(s)}}</option></select><select v-model="sort" :aria-label="copy('转化排序','Conversion sort')"><option value="rate">{{copy('转化率：从高到低','Conversion rate: high to low')}}</option><option value="converted">{{copy('转化数：从高到低','Paying students: high to low')}}</option><option value="completed">{{copy('完课数：从高到低','Completed trials: high to low')}}</option></select></div></div>
+ <div class="table-scroll"><table><thead><tr><th>{{tr('老师')}}</th><th>{{tr('科目')}}</th><th>{{copy('体验课完课数','Completed trials')}}</th><th>{{copy('转化付费学员数','Paying students')}}</th><th>{{copy('转化率','Conversion rate')}}</th><th></th></tr></thead><tbody><tr v-for="r in rows" :key="r.teacher.id"><td><strong>{{teacherLabel(r.teacher)}}</strong></td><td>{{tr(r.teacher.subject)}}</td><td>{{r.completed}}</td><td>{{r.converted}}</td><td><strong>{{percent(r.rate)}}</strong><small v-if="r.invalid" class="error">{{copy('完课数已变更，请核对每日转化数','Completions changed; review daily conversions')}}</small></td><td><button class="text-button" @click="emit('edit',r.teacher,anchor||cairoToday(),bounds)">{{copy('录入 / 查看明细','Edit / view details')}}</button></td></tr></tbody></table></div><div v-if="!rows.length" class="empty-state">{{copy('没有符合条件的老师','No matching teachers')}}</div><div class="table-footer">{{copy('无完课数据时转化率显示 —；整体转化率按总转化数 ÷ 总完课数计算。','No completions: —. Overall rate uses total conversions divided by total completions.')}}</div></section>
+</template>
