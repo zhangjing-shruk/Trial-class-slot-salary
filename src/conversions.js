@@ -27,3 +27,21 @@ export function conversionRows(data,start,end,{subject='',search='',sort='rate'}
  });
  return rows.sort((a,b)=>(b[sort]??-1)-(a[sort]??-1)||teacherLabel(a.teacher).localeCompare(teacherLabel(b.teacher)));
 }
+
+export function conversionPeriod(anchor,mode='month',offset=0){
+ const date=new Date(anchor+'T12:00:00Z');
+ if(mode==='week'){
+  date.setUTCDate(date.getUTCDate()-date.getUTCDay()+offset*7);
+  const start=date.toISOString().slice(0,10);date.setUTCDate(date.getUTCDate()+6);
+  return [start,date.toISOString().slice(0,10)];
+ }
+ date.setUTCDate(1);date.setUTCMonth(date.getUTCMonth()+offset);
+ const start=date.toISOString().slice(0,10);date.setUTCMonth(date.getUTCMonth()+1,0);
+ return [start,date.toISOString().slice(0,10)];
+}
+export const rateChange=(current,previous)=>current===null||previous===null?null:(current-previous)*100;
+export function compareConversions(data,anchor,mode,options={}){
+ const current=conversionRows(data,...conversionPeriod(anchor,mode),options);
+ const previous=new Map(conversionRows(data,...conversionPeriod(anchor,mode,-1),options).map(r=>[r.teacher.id,r]));
+ return current.map(r=>({...r,previous:previous.get(r.teacher.id),change:rateChange(r.rate,previous.get(r.teacher.id)?.rate??null)}));
+}
