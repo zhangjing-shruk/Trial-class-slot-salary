@@ -5,38 +5,53 @@ export const weekday = d => new Date(`${d}T12:00:00Z`).getUTCDay();
 export const minutes = t => { if(!/^\d{2}:\d{2}$/.test(t)) throw Error('时间格式无效'); const [h,m]=t.split(':').map(Number); if(h>24||m>59||(h===24&&m!==0))throw Error('时间无效');return h*60+m; };
 export const clock = m => `${String(Math.floor(m/60)).padStart(2,'0')}:${String(m%60).padStart(2,'0')}`;
 export function slotsFor(ranges){const s=new Set();for(const r of ranges){const a=minutes(r.start),b=minutes(r.end);if(a%30||b%30||b<=a)throw Error('时间须为整点或半点，且结束晚于开始');for(let n=a;n<b;n+=30){if(s.has(n))throw Error('时间段不能重叠');s.add(n);}}return [...s].sort((a,b)=>a-b);}
-export function fixedScheduleFor(teacher,date){if(!inOperatingPeriod(date))return [];return [...(teacher.schedules||[])].filter(s=>s.effective<=date).sort((a,b)=>b.effective.localeCompare(a.effective))[0]?.ranges.filter(r=>Number(r.day)===weekday(date))||[];}
-export function scheduleFor(teacher,date){if(!inOperatingPeriod(date))return [];return teacher.dateSchedules?.[date]?.ranges ?? fixedScheduleFor(teacher,date);}
+// The first working date is a boundary, independent of later weekly template versions.
+export function teacherStartDate(teacher){return clampStart(teacher.scheduleStart||[...(teacher.schedules||[])].map(s=>s.effective).sort()[0]||START_DATE);}
+export const teacherHasStarted=(teacher,date)=>inOperatingPeriod(date)&&date>=teacherStartDate(teacher);
+export function fixedScheduleFor(teacher,date){if(!teacherHasStarted(teacher,date))return [];return [...(teacher.schedules||[])].filter(s=>s.effective<=date).sort((a,b)=>b.effective.localeCompare(a.effective))[0]?.ranges.filter(r=>Number(r.day)===weekday(date))||[];}
+export function scheduleFor(teacher,date){if(!teacherHasStarted(teacher,date))return [];return teacher.dateSchedules?.[date]?.ranges ?? fixedScheduleFor(teacher,date);}
 export function scheduleEditorState(teacher,today){
  const versions=[...(teacher.schedules||[])].sort((a,b)=>b.effective.localeCompare(a.effective));
  const version=versions.find(v=>v.effective===teacher.lastScheduleEffective)||versions[0];
- return {effective:clampStart(version?.effective||today),ranges:JSON.parse(JSON.stringify(version?.ranges||[])),version:version?clampStart(version.effective):'new'};
+ return {effective:clampStart(version?.effective||today),ranges:JSON.parse(JSON.stringify(version?.ranges||[])),version:version?clampStart(version.effective):'new',sourceEffective:version?.effective||null};
 }
 export function saveDateSchedule(teacher,date,ranges,reason,hasDailyRecord=false){
  if(!inOperatingPeriod(date))throw Error('系统从 2026-10-20 开始记录，请选择该日或之后的日期。');
  if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||!Number.isFinite(new Date(date+'T12:00:00Z').getTime()))throw Error('请选择有效日期');
+ if(!teacherHasStarted(teacher,date))throw Error('该日期早于老师排班开始日期。');
  if(hasDailyRecord)throw Error('该日期已录入工资，请在每日记录中通过异常调整时间，以保留原始排班');
  if(!reason.trim())throw Error('请填写排班备注');
  slotsFor(ranges);
  teacher.dateSchedules??={};teacher.dateSchedules[date]={ranges:ranges.map(r=>({start:r.start,end:r.end})),reason:reason.trim()};
 }
-export function saveFixedSchedule(teacher,effective,ranges,recordDates=[]){
+export function saveFixedSchedule(teacher,effective,ranges,recordDates=[],sourceEffective=null){
  if(!inOperatingPeriod(effective))throw Error('系统从 2026-10-20 开始记录，请选择该日或之后的日期。');
  const parsed=new Date(effective+'T12:00:00Z');
  if(!/^\d{4}-\d{2}-\d{2}$/.test(effective)||!Number.isFinite(parsed.getTime())||parsed.toISOString().slice(0,10)!==effective)throw Error('请选择有效日期');
+ const source=(teacher.schedules||[]).find(s=>s.effective===sourceEffective);
+ if(source&&source.effective!==effective){
+  const lo=source.effective<effective?source.effective:effective,hi=source.effective>effective?source.effective:effective;
+  if(recordDates.some(d=>d>=lo&&d<hi))throw Error('移动生效日期会影响已录入工资，请先核对已有记录。');
+ }
  const existing=(teacher.schedules||[]).find(s=>s.effective===effective);
  const nextVersion=[...(teacher.schedules||[])].filter(s=>s.effective>effective).sort((a,b)=>a.effective.localeCompare(b.effective))[0];
  if(recordDates.some(d=>d>=effective&&(!nextVersion||d<nextVersion.effective)))throw Error('该排班适用期间已有工资记录，请通过每日记录的异常调整，避免改动已录入工资。');
  for(let d=0;d<7;d++)slotsFor(ranges.filter(r=>Number(r.day)===d));
  const next={effective,ranges:JSON.parse(JSON.stringify(ranges))};
+ if(source&&source.effective!==effective){
+  if(clampStart(source.effective)===teacherStartDate(teacher))teacher.scheduleStart=effective;
+  teacher.scheduleAudit??=[];teacher.scheduleAudit.push({...JSON.parse(JSON.stringify(source)),movedTo:effective});
+  teacher.schedules=teacher.schedules.filter(s=>s!==source);
+ }
+ if(!(teacher.schedules||[]).length&&!teacher.scheduleStart)teacher.scheduleStart=effective;
  if(existing){teacher.scheduleAudit??=[];teacher.scheduleAudit.push(JSON.parse(JSON.stringify(existing)));teacher.schedules[teacher.schedules.indexOf(existing)]=next;}
  else{teacher.schedules??=[];teacher.schedules.push(next);}
  teacher.lastScheduleEffective=effective;
 }
-export function effectiveSlots(teacher,date,exceptions=[]){if(!inOperatingPeriod(date))return [];const s=new Set(slotsFor(scheduleFor(teacher,date)));for(const e of exceptions.filter(e=>e.kind==='add'))for(const m of slotsFor([e]))s.add(m);for(const e of exceptions.filter(e=>e.kind!=='add'))for(const m of slotsFor([e]))s.delete(m);return [...s].sort((a,b)=>a-b);}
+export function effectiveSlots(teacher,date,exceptions=[]){if(!teacherHasStarted(teacher,date))return [];const s=new Set(slotsFor(scheduleFor(teacher,date)));for(const e of exceptions.filter(e=>e.kind==='add'))for(const m of slotsFor([e]))s.add(m);for(const e of exceptions.filter(e=>e.kind!=='add'))for(const m of slotsFor([e]))s.delete(m);return [...s].sort((a,b)=>a-b);}
 export const payModeLabel = mode => mode==='hourly'?'按开放时长':'按 slot 完课与补偿';
 export function calculate(teacher,date,record={}){
- if(!inOperatingPeriod(date))return {excluded:true,payMode:teacher.payMode||'slot',paidHours:0,hourlyPay:0,slots:[],completed:0,remaining:0,halfPaySlots:0,slotRate:0,lesson:0,compensation:0,bonusHours:0,bonus:0,adjustments:0,total:0};
+ if(!teacherHasStarted(teacher,date))return {excluded:true,payMode:teacher.payMode||'slot',paidHours:0,hourlyPay:0,slots:[],completed:0,remaining:0,halfPaySlots:0,slotRate:0,lesson:0,compensation:0,bonusHours:0,bonus:0,adjustments:0,total:0};
  if(!Number.isFinite(teacher.rate)||teacher.rate<=0||!['EGP','JOD'].includes(teacher.currency))throw Error('请先补充老师时薪和币种');
  const payMode=teacher.payMode||'slot';
  if(!['slot','hourly'].includes(payMode))throw Error('计薪方式无效');

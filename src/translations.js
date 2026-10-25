@@ -1,4 +1,7 @@
 export const messages = {
+ "尚未生效":"Not yet effective",
+ "该日期早于老师排班开始日期。":"This date is before the teacher's schedule start date.",
+ "移动生效日期会影响已录入工资，请先核对已有记录。":"Moving the effective date would affect recorded pay. Review existing records first.",
  "体验课转化":"Trial Conversions",
  "按周、按月和科目统计体验课转化，支持历史补录。":"Track trial conversions by week, month and subject, including historical entries.",
  "完课数和转化数必须为非负整数。":"Completed and converted counts must be non-negative whole numbers.",
