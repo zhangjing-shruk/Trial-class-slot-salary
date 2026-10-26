@@ -37,3 +37,5 @@ test('an explicit future change stops inherited edits from resurfacing after tha
 });
 
 test('adding a weekend does not block because unrelated weekdays already have payroll',()=>{const t=fixture();const before=calculate(t,'2026-10-26',{completed:3}).total;saveFixedSchedule(t,'2026-10-22',[...base,saturday],['2026-10-26'],'2026-10-22');assert.equal(calculate(t,'2026-10-26',{completed:3}).total,before);assert.equal(effectiveSlots(t,'2026-10-31').length,6);});
+
+test('moving a template date still protects payroll after the new date',()=>{const t=fixture(),before=JSON.stringify(t);assert.throws(()=>saveFixedSchedule(t,'2026-10-23',[{day:1,start:'14:00',end:'16:00'}],['2026-10-26'],'2026-10-22'),/已有工资记录/);assert.equal(JSON.stringify(t),before);});

@@ -67,8 +67,8 @@ function updateFixedSchedule(teacher,effective,ranges,recordDates=[],sourceEffec
    teacher.scheduleAudit??=[];teacher.scheduleAudit.push({...JSON.parse(JSON.stringify(later)),updatedFrom:effective});
    later.ranges=[...later.ranges.filter(r=>!inherited.includes(Number(r.day))),...ranges.filter(r=>inherited.includes(Number(r.day))).map(r=>({...r}))];
   }
-  if(recordDates.some(d=>JSON.stringify(slotsFor(scheduleFor(previousTeacher,d)))!==JSON.stringify(slotsFor(scheduleFor(teacher,d)))))throw Error('该排班适用期间已有工资记录，请通过每日记录的异常调整，避免改动已录入工资。');
  }
+ if(source&&recordDates.some(d=>JSON.stringify(slotsFor(scheduleFor(previousTeacher,d)))!==JSON.stringify(slotsFor(scheduleFor(teacher,d)))))throw Error('该排班适用期间已有工资记录，请通过每日记录的异常调整，避免改动已录入工资。');
  teacher.lastScheduleEffective=effective;
 }
 export function effectiveSlots(teacher,date,exceptions=[]){if(!teacherHasStarted(teacher,date))return [];const s=new Set(slotsFor(scheduleFor(teacher,date)));for(const e of exceptions.filter(e=>e.kind==='add'))for(const m of slotsFor([e]))s.add(m);for(const e of exceptions.filter(e=>e.kind!=='add'))for(const m of slotsFor([e]))s.delete(m);return [...s].sort((a,b)=>a-b);}
