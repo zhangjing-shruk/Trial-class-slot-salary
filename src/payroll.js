@@ -15,6 +15,18 @@ export function scheduleEditorState(teacher,today){
  const version=versions.find(v=>v.effective===teacher.lastScheduleEffective)||versions[0];
  return {effective:clampStart(version?.effective||today),ranges:JSON.parse(JSON.stringify(version?.ranges||[])),version:version?clampStart(version.effective):'new',sourceEffective:version?.effective||null};
 }
+export function scheduleChangeEditorState(teacher,effective){
+ const versions=[...(teacher.schedules||[])].sort((a,b)=>b.effective.localeCompare(a.effective));
+ const base=versions.find(s=>s.effective<=effective)||versions.at(-1);
+ return {effective,ranges:JSON.parse(JSON.stringify(base?.ranges||[]))};
+}
+export function saveScheduleChange(teacher,effective,ranges,recordDates=[]){
+ if(!(teacher.schedules||[]).length)throw Error('请先建立老师的首次固定排班。');
+ if(effective<=teacherStartDate(teacher))throw Error('新排班变更日期必须晚于首次排班开始日期。');
+ if(teacher.schedules.some(s=>s.effective===effective))throw Error('该日期已有固定排班，请使用编辑已有排班进行修改。');
+ // No source date is moved: the previous template remains valid until this new effective date.
+ saveFixedSchedule(teacher,effective,ranges,recordDates);
+}
 export function saveDateSchedule(teacher,date,ranges,reason,hasDailyRecord=false){
  if(!inOperatingPeriod(date))throw Error('系统从 2026-10-20 开始记录，请选择该日或之后的日期。');
  if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||!Number.isFinite(new Date(date+'T12:00:00Z').getTime()))throw Error('请选择有效日期');

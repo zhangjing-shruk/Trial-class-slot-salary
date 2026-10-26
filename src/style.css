@@ -23,3 +23,5 @@
 .trend-up{color:#176d54;font-weight:600}.trend-down{color:#be5146;font-weight:600}.trend-flat{color:#718976}.conversion-comparison-period{margin:0 0 18px;line-height:1.8}
 
 .schedule-toolbar{flex-wrap:wrap;gap:12px}.schedule-search{min-width:220px;flex:1;max-width:340px}
+
+.schedule-operation{margin:0 0 20px;display:flex;flex-wrap:wrap}.schedule-operation button{white-space:normal}
