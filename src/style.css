@@ -25,3 +25,8 @@
 .schedule-toolbar{flex-wrap:wrap;gap:12px}.schedule-search{min-width:220px;flex:1;max-width:340px}
 
 .schedule-operation{margin:0 0 20px;display:flex;flex-wrap:wrap}.schedule-operation button{white-space:normal}
+
+/* Keep weekday/date headers visible inside the vertically scrolling availability grid. */
+.board-matrix .table-scroll{max-height:75vh;overflow:auto;position:relative;isolation:isolate}
+.board-matrix .availability-table thead th{position:sticky;top:0;z-index:2}
+.board-matrix .availability-table thead .time-sticky{z-index:3}
