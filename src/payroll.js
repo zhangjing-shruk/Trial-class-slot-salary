@@ -25,6 +25,13 @@ export function saveDateSchedule(teacher,date,ranges,reason,hasDailyRecord=false
  teacher.dateSchedules??={};teacher.dateSchedules[date]={ranges:ranges.map(r=>({start:r.start,end:r.end})),reason:reason.trim()};
 }
 export function saveFixedSchedule(teacher,effective,ranges,recordDates=[],sourceEffective=null){
+ // Build the complete update before applying it so a later payroll conflict cannot leave a partial save.
+ const candidate=JSON.parse(JSON.stringify(teacher));
+ updateFixedSchedule(candidate,effective,ranges,recordDates,sourceEffective);
+ Object.assign(teacher,candidate);
+}
+const daySignature=(ranges,day)=>JSON.stringify(ranges.filter(r=>Number(r.day)===day).map(r=>({start:r.start,end:r.end})).sort((a,b)=>a.start.localeCompare(b.start)));
+function updateFixedSchedule(teacher,effective,ranges,recordDates=[],sourceEffective=null){
  if(!inOperatingPeriod(effective))throw Error('系统从 2026-10-20 开始记录，请选择该日或之后的日期。');
  const parsed=new Date(effective+'T12:00:00Z');
  if(!/^\d{4}-\d{2}-\d{2}$/.test(effective)||!Number.isFinite(parsed.getTime())||parsed.toISOString().slice(0,10)!==effective)throw Error('请选择有效日期');
@@ -34,8 +41,10 @@ export function saveFixedSchedule(teacher,effective,ranges,recordDates=[],source
   if(recordDates.some(d=>d>=lo&&d<hi))throw Error('移动生效日期会影响已录入工资，请先核对已有记录。');
  }
  const existing=(teacher.schedules||[]).find(s=>s.effective===effective);
+ const prior=source?JSON.parse(JSON.stringify(source)):null;
+ const previousTeacher=JSON.parse(JSON.stringify(teacher));
  const nextVersion=[...(teacher.schedules||[])].filter(s=>s.effective>effective).sort((a,b)=>a.effective.localeCompare(b.effective))[0];
- if(recordDates.some(d=>d>=effective&&(!nextVersion||d<nextVersion.effective)))throw Error('该排班适用期间已有工资记录，请通过每日记录的异常调整，避免改动已录入工资。');
+ if(!source&&recordDates.some(d=>d>=effective&&(!nextVersion||d<nextVersion.effective)))throw Error('该排班适用期间已有工资记录，请通过每日记录的异常调整，避免改动已录入工资。');
  for(let d=0;d<7;d++)slotsFor(ranges.filter(r=>Number(r.day)===d));
  const next={effective,ranges:JSON.parse(JSON.stringify(ranges))};
  if(source&&source.effective!==effective){
@@ -46,6 +55,20 @@ export function saveFixedSchedule(teacher,effective,ranges,recordDates=[],source
  if(!(teacher.schedules||[]).length&&!teacher.scheduleStart)teacher.scheduleStart=effective;
  if(existing){teacher.scheduleAudit??=[];teacher.scheduleAudit.push(JSON.parse(JSON.stringify(existing)));teacher.schedules[teacher.schedules.indexOf(existing)]=next;}
  else{teacher.schedules??=[];teacher.schedules.push(next);}
+ // Edits to a saved weekday also update later templates still inheriting the old hours.
+ // An explicitly different later weekday remains an independent planned change.
+ if(prior&&sourceEffective===effective){
+  const changedDays=Array.from({length:7},(_,day)=>day).filter(day=>daySignature(prior.ranges,day)!==daySignature(ranges,day));
+  const blockedDays=new Set();
+  for(const later of teacher.schedules.filter(s=>s.effective>effective).sort((a,b)=>a.effective.localeCompare(b.effective))){
+   const inherited=changedDays.filter(day=>!blockedDays.has(day)&&daySignature(later.ranges,day)===daySignature(prior.ranges,day));
+   for(const day of changedDays)if(!inherited.includes(day))blockedDays.add(day);
+   if(!inherited.length)continue;
+   teacher.scheduleAudit??=[];teacher.scheduleAudit.push({...JSON.parse(JSON.stringify(later)),updatedFrom:effective});
+   later.ranges=[...later.ranges.filter(r=>!inherited.includes(Number(r.day))),...ranges.filter(r=>inherited.includes(Number(r.day))).map(r=>({...r}))];
+  }
+  if(recordDates.some(d=>JSON.stringify(slotsFor(scheduleFor(previousTeacher,d)))!==JSON.stringify(slotsFor(scheduleFor(teacher,d)))))throw Error('该排班适用期间已有工资记录，请通过每日记录的异常调整，避免改动已录入工资。');
+ }
  teacher.lastScheduleEffective=effective;
 }
 export function effectiveSlots(teacher,date,exceptions=[]){if(!teacherHasStarted(teacher,date))return [];const s=new Set(slotsFor(scheduleFor(teacher,date)));for(const e of exceptions.filter(e=>e.kind==='add'))for(const m of slotsFor([e]))s.add(m);for(const e of exceptions.filter(e=>e.kind!=='add'))for(const m of slotsFor([e]))s.delete(m);return [...s].sort((a,b)=>a-b);}

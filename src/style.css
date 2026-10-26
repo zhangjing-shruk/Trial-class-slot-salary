@@ -21,3 +21,5 @@
 .conversion-stats{grid-template-columns:repeat(3,minmax(0,1fr))}.conversion-history{max-height:260px}.conversion-history td{padding:9px 12px}@media(max-width:850px){.conversion-stats{grid-template-columns:1fr}}
 
 .trend-up{color:#176d54;font-weight:600}.trend-down{color:#be5146;font-weight:600}.trend-flat{color:#718976}.conversion-comparison-period{margin:0 0 18px;line-height:1.8}
+
+.schedule-toolbar{flex-wrap:wrap;gap:12px}.schedule-search{min-width:220px;flex:1;max-width:340px}
