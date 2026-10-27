@@ -1,4 +1,5 @@
 export const messages = {
+ "三科":"All three subjects",
  "请先建立老师的首次固定排班。":"Create the teacher's initial recurring schedule first.",
  "新排班变更日期必须晚于首次排班开始日期。":"The change must start after the teacher's first schedule date.",
  "该日期已有固定排班，请使用编辑已有排班进行修改。":"A schedule already starts on this date. Use Edit existing schedule to update it.",
