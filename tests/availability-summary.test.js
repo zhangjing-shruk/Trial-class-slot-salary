@@ -23,3 +23,19 @@ test('respects teacher starting dates and future schedule changes within the wee
 test('empty subjects show zeros and resigned teachers are excluded',()=>{
  const teachers=[{...teacher('a','英语'),deletedAt:'2026-10-25'}];const summary=summarizeSubjectSlots(teachers,sets(teachers));assert.equal(summary.rows.length,3);assert.equal(summary.total,0);assert.deepEqual(summary.daily,[0,0,0,0,0,0,0]);
 });
+
+test('workday average uses Sunday through Thursday divided by five and weekly average uses all seven days',()=>{
+ const members=[teacher('a','英语'),teacher('b','数学')];
+ const daily=[2,4,6,8,10,12,14];
+ const maps=daily.map(n=>new Map([['a',new Set(Array.from({length:n},(_,i)=>i))],['b',new Set([0])]]));
+ const summary=summarizeSubjectSlots(members,maps);
+ assert.equal(summary.rows[0].workdayAverage,6);assert.equal(summary.rows[0].weeklyAverage,8);
+ assert.equal(summary.rows[1].workdayAverage,1);assert.equal(summary.rows[1].weeklyAverage,1);
+ assert.equal(summary.workdayAverage,7);assert.equal(summary.weeklyAverage,9);
+});
+test('daily averages include closed days and retain precision until display',()=>{
+ const members=[teacher('a','英语')],maps=days.map((_,i)=>new Map([['a',new Set(i===6?[0]:[])]]));
+ const summary=summarizeSubjectSlots(members,maps);
+ assert.equal(summary.rows[0].workdayAverage,0);assert.equal(summary.rows[0].weeklyAverage,1/7);
+ assert.equal(summary.workdayAverage,0);assert.equal(summary.weeklyAverage,1/7);assert.equal(summary.rows[1].weeklyAverage,0);
+});
