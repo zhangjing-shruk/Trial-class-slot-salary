@@ -1,4 +1,12 @@
 export const messages = {
+ "转化奖励":"Conversion bonus",
+ "转化人数":"Converted students",
+ "每人转化奖励":"Conversion bonus per student",
+ "请选择有效的转化奖励标准。":"Choose a valid conversion bonus rate.",
+ "转化奖励币种必须与老师工资币种一致。":"Conversion bonus currency must match the salary currency.",
+ "转化数必须为非负整数。":"Conversions must be a non-negative whole number.",
+ "课时工资按已录入记录统计，另计转化奖励":"Lesson wages use recorded days; conversion bonuses are added separately.",
+ "未录入的日期不自动计算课时工资；转化奖励按付费日期单独统计。Excel 包含汇总和每日明细两个工作表。":"Unrecorded days earn no lesson wages. Conversion bonuses use purchase dates. Excel includes summary and daily details.",
  "三科":"All three subjects",
  "请先建立老师的首次固定排班。":"Create the teacher's initial recurring schedule first.",
  "新排班变更日期必须晚于首次排班开始日期。":"The change must start after the teacher's first schedule date.",
