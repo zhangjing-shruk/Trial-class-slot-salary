@@ -24,8 +24,9 @@ export function payrollDetailHtml(text){
 }
 export async function copyPayrollDetail(text){
  if(!navigator.clipboard)throw Error('Clipboard is unavailable');
- if(typeof ClipboardItem!=='undefined'&&navigator.clipboard.write){
-  try{await navigator.clipboard.write([new ClipboardItem({'text/plain':new Blob([text],{type:'text/plain'}),'text/html':new Blob([payrollDetailHtml(text)],{type:'text/html'})})]);return;}catch{}
- }
+ // Establish plain text first: this also works with clipboard managers that only capture writeText.
  await navigator.clipboard.writeText(text);
+ if(typeof ClipboardItem!=='undefined'&&navigator.clipboard.write){
+  try{await navigator.clipboard.write([new ClipboardItem({'text/plain':new Blob([text],{type:'text/plain'}),'text/html':new Blob([payrollDetailHtml(text)],{type:'text/html'})})]);}catch{}
+ }
 }
