@@ -35,3 +35,4 @@
 .slot-summary-table .summary-average{background:#edf3f7;color:#4d6a7a;font-weight:600}.slot-summary-table thead th{white-space:normal}.slot-summary .table-footer{line-height:1.8}
 
 .availability-table{min-width:945px}.availability-table .saudi-time{left:0;width:105px;background:#eff5f8;color:#536f80}.availability-table .cairo-time{left:105px;width:105px}.availability-table thead .saudi-time{background:#e9f0f5}.timezone-reference-note{line-height:1.8}html[lang=en] .availability-table{min-width:1155px}
+.payroll-copy-button{font-size:11px;padding:8px 10px}.payroll-copy-fallback{display:block;width:100%;min-height:330px;margin-top:18px;padding:16px;border:1px solid var(--border);border-radius:7px;font:inherit;line-height:1.9;resize:vertical}

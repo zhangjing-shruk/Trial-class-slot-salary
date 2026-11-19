@@ -1,4 +1,5 @@
 export const messages = {
+ "工资金额无效。":"Invalid salary amount.",
  "转化奖励":"Conversion bonus",
  "转化人数":"Converted students",
  "每人转化奖励":"Conversion bonus per student",
