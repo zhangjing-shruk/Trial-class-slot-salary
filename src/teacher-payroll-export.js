@@ -56,3 +56,22 @@ export function teacherPayrollExport(data,teacherId,start,end,language='zh'){
  const localize=rows=>rows.map(row=>Object.fromEntries(Object.entries(row).map(([key,value])=>[labels[key]||translate(key,'en'),enums.includes(key)&&typeof value==='string'?value.split(' / ').map(part=>labels[part]||translate(part,'en')).join(' / '):value])));
  return {summary:localize(overview),daily:localize(daily),slots:localize(slots)};
 }
+
+// One teacher, one worksheet, one calendar day per row; period-only reconciliation follows the dates.
+export function singleTeacherPayrollTable(data,teacherId,start,end,language='zh'){
+ const source=teacherPayrollExport(data,teacherId,start,end),en=language==='en';
+ const columns={'日期':'Date','星期':'Weekday','有效开放时段':'Open times (Cairo)','有效开放slot数':'Open slots','完课数':'Completed lessons','半薪slot数':'Half-pay slots','原始付费转化人数':'Converted students','周期计奖人数调整':'Period conversion adjustment','完课工资':'Completed lesson pay','时长工资':'Hourly pay','半薪补偿':'Half-pay compensation','晚间奖励':'Evening bonus','转化奖励':'Conversion bonus','人工调整':'Manual adjustments','其他':'Other','总计':'Total salary','工资记录状态':'Record status','备注':'Notes'};
+ const rows=source.daily.map(row=>{
+  const notes=['排班备注','时间异常及原因','人工调整备注','其他备注','核对提示'].map(key=>row[key]?`${en?({'排班备注':'Schedule','时间异常及原因':'Time exceptions','人工调整备注':'Manual adjustments','其他备注':'Other','核对提示':'Reconciliation'}[key]):key}: ${row[key]}`:'').filter(Boolean).join('；');
+  return Object.fromEntries(Object.keys(columns).map(key=>[key,key==='备注'?notes:row[key]??'']));
+ });
+ const total={'日期':en?'TOTAL':'合计','备注':en?'Period adjustments are listed separately above; unrecorded days are not confirmed zero-completion days.':'周期奖励调整已单独列在日期记录之后；未录入日期不代表已确认零完课。'};
+ for(const key of Object.keys(columns).slice(3,16))total[key]=rows.reduce((sum,row)=>sum+Math.round(Number(row[key]||0)*1000),0)/1000;
+ rows.push(total);
+ if(en){
+  // Use the existing English daily report for statuses and user-facing generated explanations.
+  const localized=teacherPayrollExport(data,teacherId,start,end,'en').daily;
+  rows.forEach((row,i)=>{if(i<localized.length){row['星期']=localized[i]['Weekday'];row['工资记录状态']=localized[i]['Payroll record status'];const parts=['Schedule note','Time exceptions and reasons','Manual adjustment notes','Other notes','Reconciliation note'].map(key=>localized[i][key]).filter(Boolean);row['备注']=parts.join('; ');}});
+ }
+ return {teacher:source.summary[0]['老师'],currency:source.summary[0]['币种'],period:`${start} — ${end}`,rows:en?rows.map(row=>Object.fromEntries(Object.entries(row).map(([key,value])=>[columns[key]||key,value]))):rows};
+}

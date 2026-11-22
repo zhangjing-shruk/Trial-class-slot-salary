@@ -12,7 +12,7 @@ import {conversionDay,validateConversion,saveConversion} from './conversions.js'
 import {CONVERSION_BONUS_OPTIONS,validateConversionBonus} from './conversion-bonus.js';
 import {salaryForDay,buildPayrollReport,payrollExportRows} from './payroll-report.js';
 import {payrollDetailText,copyPayrollDetail} from './payroll-details.js';
-import {teacherPayrollExport} from './teacher-payroll-export.js';
+import {singleTeacherPayrollTable} from './teacher-payroll-export.js';
 import {savePayrollConversionCount,resetPayrollConversionCount} from './payroll-conversion-override.js';
 import {saveOtherSalary} from './other-salary.js';
 import {applySourceImport,applyConfirmedPayRules} from './import-data.js';
@@ -155,14 +155,14 @@ async function copyTeacherPayroll(row){
  finally{copyingPayroll.value=false;}
 }
 function exportTeacherPayroll(row){run(()=>{
- const records=teacherPayrollExport(data.value,row.teacher.id,reportStart.value,reportEnd.value,locale.value),book=XLSX.utils.book_new();
- for(const [name,items] of [['周期汇总',records.summary],['每日工资明细',records.daily],['半小时slot记录',records.slots]]){
-  const sheet=XLSX.utils.json_to_sheet(items);sheet['!cols']=Object.keys(items[0]||{}).map(key=>({wch:/备注|说明|提示|原因|时段/.test(key)?48:key==='老师'?30:18}));
-  sheet['!autofilter']={ref:sheet['!ref']||'A1:A1'};
-  for(const [address,cell] of Object.entries(sheet))if(!address.startsWith('!')&&cell.t==='n'){const column=XLSX.utils.decode_cell(address).c,heading=String(sheet[XLSX.utils.encode_cell({r:0,c:column})]?.v||'');const moneyColumn=/工资|单价|时薪|补偿|奖励|人工调整|其他|总计|合计|pay|bonus|compensation|adjustment|other|total|rate/i.test(heading)&&!/小时|人数|slot|倍率|天数|hours|students|count|slots|days|multiplier/i.test(heading);cell.z=moneyColumn?(row.teacher.currency==='JOD'?'0.000':'0.00'):'0.###';}
-  XLSX.utils.book_append_sheet(book,sheet,locale.value==='en'?({'周期汇总':'Period summary','每日工资明细':'Daily payroll','半小时slot记录':'Half-hour slots'}[name]||name):name);
- }
- XLSX.writeFile(book,`${teacherLabel(row.teacher).replace(/[\/:*?"<>|]/g,'_')}_${reportStart.value}_${reportEnd.value}_工资核对.xlsx`);
+ const en=locale.value==='en',table=singleTeacherPayrollTable(data.value,row.teacher.id,reportStart.value,reportEnd.value,locale.value),book=XLSX.utils.book_new();
+ const sheet=XLSX.utils.aoa_to_sheet([[`${en?'Teacher':'教师'}: ${table.teacher} · ${table.currency}`],[`${en?'Payroll period':'工资周期'}: ${table.period}`],[en?'One row per date; period bonus adjustments follow the dates. Times use Cairo local time.':'每天一行，周期奖励调整列在日期记录之后。时段按开罗当地时间。']]);
+ XLSX.utils.sheet_add_json(sheet,table.rows,{origin:'A5'});
+ const headers=Object.keys(table.rows[0]||{});sheet['!cols']=headers.map(key=>({wch:/备注|Notes|时段|times/.test(key)?55:/状态|status|日期|Date/.test(key)?24:17}));
+ sheet['!autofilter']={ref:`A5:${XLSX.utils.encode_cell({r:4+table.rows.length-1,c:headers.length-1})}`};
+ for(const [address,cell] of Object.entries(sheet))if(!address.startsWith('!')&&cell.t==='n'){const heading=headers[XLSX.utils.decode_cell(address).c]||'';const cash=/工资|补偿|奖励|人工调整|其他|总计|pay|bonus|compensation|Manual adjustments|^Other$|Total salary/i.test(heading)&&!/人数|调整人数|conversion adjustment|students|slots|lessons/i.test(heading);cell.z=cash?(row.teacher.currency==='JOD'?'0.000':'0.00'):'0.###';}
+ XLSX.utils.book_append_sheet(book,sheet,en?'Daily salary breakdown':'逐日工资核对表');
+ XLSX.writeFile(book,`${teacherLabel(row.teacher).replace(/[\/:*?"<>|]/g,'_')}_${reportStart.value}_${reportEnd.value}_逐日工资.xlsx`);
 });}
 function exportExcel(){run(()=>{datesBetween(reportStart.value,reportEnd.value);const wb=XLSX.utils.book_new();const {summary,details}=payrollExportRows(report.value,data.value.records);for(const [name,items]of [['工资汇总',summary],['每日明细',details]]){const ws=XLSX.utils.json_to_sheet(items.map(row=>Object.fromEntries(Object.entries(row).map(([key,value])=>[tr(key),['科目','计薪方式','排班来源','计奖人数来源'].includes(key)?tr(value):value]))));ws['!cols']=Object.keys(items[0]||{}).map(()=>({wch:18}));XLSX.utils.book_append_sheet(wb,ws,tr(name));}XLSX.writeFile(wb,`${tr('工资')}_${reportStart.value}_${reportEnd.value}.xlsx`);});}
 function backup(){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(data.value,null,2)],{type:'application/json'}));a.download=`${tr('课时簿备份')}_${today}.json`;a.click();URL.revokeObjectURL(a.href);}
