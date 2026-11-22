@@ -12,7 +12,7 @@ export function payrollDetailText(row,start,end,language='zh'){
  if(row.teacher.payMode==='hourly'||Number(row.hourlyPay)>0)lines.push(`${en?'Hourly pay':'时长工资'}：${amount(row.hourlyPay,currency)}`);
  lines.push(`${en?'Half-pay compensation':'半薪补偿'}：${amount(row.compensation,currency)}`,
  `${en?'Evening bonus':'晚间奖励'}：${amount(row.bonus,currency)}`,
- `${en?'Conversion bonus':'转化奖励'}：${amount(row.conversionBonus,currency)}`,
+ `${en?'Conversion bonus':'转化奖励'}：${amount(row.conversionBonus,currency)}${row.conversionBonusMultiplier===2&&row.conversionBonus>0?` (${row.converted} × ${amount(row.conversionBonusRate,currency)} × 2)`:''}`,
  `${en?'Deductions':'扣费'}：${Number(row.adjustments)>0?'+':''}${amount(row.adjustments,currency)}${Number(row.adjustments)>0?(en?' (positive manual adjustment: added pay)':'（人工调整为加款）'):''}`,
  `${en?'Other':'其他'}：${Number(row.other)>0?'+':''}${amount(row.other,currency)}`,
  ...(row.otherEntries||[]).map(entry=>`  ${entry.date}：${Number(entry.amount)>0?'+':''}${amount(entry.amount,entry.currency||currency)}${entry.reason?' · '+entry.reason:''}`),

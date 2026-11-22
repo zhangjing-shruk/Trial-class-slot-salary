@@ -17,3 +17,9 @@ export function conversionBonusFor(data,teacher,date,convertedOverride){
  const option=validateConversionBonus(teacher.conversionBonus,teacher.currency);
  return {converted,conversionBonusRate:option?.amount||0,conversionBonusOption:option?.label||'',conversionBonus:Math.round((option?.amount||0)*1000)*converted/1000};
 }
+
+// Payroll-period rule: all conversions qualify at ten students, including the first ten.
+export function periodConversionBonus(data,teacher,date,converted){
+ const base=conversionBonusFor(data,teacher,date,converted),conversionBonusMultiplier=base.converted>=10?2:1;
+ return {...base,conversionBonusMultiplier,conversionBonus:Math.round(base.conversionBonus*1000)*conversionBonusMultiplier/1000};
+}

@@ -1,4 +1,6 @@
 export const messages = {
+ "转化奖励倍率":"Conversion bonus multiplier",
+ "转化奖励翻倍补差":"Conversion bonus doubling adjustment",
  "转化人数必须为非负整数。":"Conversion count must be a non-negative whole number.",
  "转化奖励金额过大，请核对人数。":"The bonus amount is too large. Check the conversion count.",
  "原始转化人数":"Original conversions",
