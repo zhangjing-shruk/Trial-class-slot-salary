@@ -1,4 +1,11 @@
 export const messages = {
+ "转化人数必须为非负整数。":"Conversion count must be a non-negative whole number.",
+ "转化奖励金额过大，请核对人数。":"The bonus amount is too large. Check the conversion count.",
+ "原始转化人数":"Original conversions",
+ "计奖人数来源":"Payroll conversion count source",
+ "人工设置":"Manual",
+ "原始数据":"Original data",
+ "工资周期转化人数调整":"Payroll period conversion count adjustment",
  "其他":"Other",
  "其他备注":"Other notes",
  "请先补充老师币种。":"Complete the teacher's salary currency first.",
