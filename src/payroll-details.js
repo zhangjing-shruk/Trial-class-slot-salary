@@ -14,6 +14,8 @@ export function payrollDetailText(row,start,end,language='zh'){
  `${en?'Evening bonus':'晚间奖励'}：${amount(row.bonus,currency)}`,
  `${en?'Conversion bonus':'转化奖励'}：${amount(row.conversionBonus,currency)}`,
  `${en?'Deductions':'扣费'}：${Number(row.adjustments)>0?'+':''}${amount(row.adjustments,currency)}${Number(row.adjustments)>0?(en?' (positive manual adjustment: added pay)':'（人工调整为加款）'):''}`,
+ `${en?'Other':'其他'}：${Number(row.other)>0?'+':''}${amount(row.other,currency)}`,
+ ...(row.otherEntries||[]).map(entry=>`  ${entry.date}：${Number(entry.amount)>0?'+':''}${amount(entry.amount,entry.currency||currency)}${entry.reason?' · '+entry.reason:''}`),
  `${en?'Total salary':'总工资'}：${amount(row.total,currency)}`,'',
  en?'Note: Salary will be paid on the last working day of this month. Please check your account.':'注意：工资将于本月最后一个工作日发放，请注意查收。');
  return en?lines.map(line=>line.replace('：',': ')).join('\n'):lines.join('\n');

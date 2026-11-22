@@ -4,7 +4,7 @@ const row=()=>({teacher:{name:'Teacher Example',teacherId:'TEST001',currency:'EG
 test('salary copy follows the requested template and exactly matches signed adjustment and displayed totals',()=>{
  const r=row(),before=JSON.stringify(r);
  assert.equal(payrollDetailText(r,'2026-10-20','2026-11-19'),[
- '这是2026-10-20 — 2026-11-19的工资','教师姓名：Teacher ExampleTEST001','完课工资：500.00 EGP','半薪补偿：2,700.00 EGP','晚间奖励：700.00 EGP','转化奖励：0.00 EGP','扣费：-100.00 EGP','总工资：3,800.00 EGP','','注意：工资将于本月最后一个工作日发放，请注意查收。'].join('\n'));
+ '这是2026-10-20 — 2026-11-19的工资','教师姓名：Teacher ExampleTEST001','完课工资：500.00 EGP','半薪补偿：2,700.00 EGP','晚间奖励：700.00 EGP','转化奖励：0.00 EGP','扣费：-100.00 EGP','其他：0.00 EGP','总工资：3,800.00 EGP','','注意：工资将于本月最后一个工作日发放，请注意查收。'].join('\n'));
  assert.equal(JSON.stringify(r),before);
 });
 test('period comes from current week month or custom selection rather than a hardcoded range',()=>{
