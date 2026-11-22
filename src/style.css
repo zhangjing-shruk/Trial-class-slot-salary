@@ -39,3 +39,4 @@
 .other-salary-cell>strong,.other-salary-cell>.text-button{display:block}.other-salary-entry{padding:15px;border:1px solid var(--border);border-radius:7px;margin:18px 0}.other-salary-entry.voided{background:#f6f7f6}.other-salary-entry>.text-button{margin-top:10px}.other-salary-entry textarea{width:100%;padding:10px;border:1px solid var(--border);border-radius:6px;font:inherit;resize:vertical}.other-salary-total{margin-top:20px;padding:14px;background:#edf5ef;border-radius:6px;color:#176d54}
 .payroll-count-edit{display:block;margin-top:6px}
 .teacher-payroll-export{display:block;margin-top:10px;font-size:11px}
+.report-toolbar{flex-wrap:wrap;gap:12px}.report-search{width:250px;max-width:100%}
